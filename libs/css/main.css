@@ -154,8 +154,32 @@ body {
 
 .page {
   background-color: var(--bg-body) !important;
-  padding: 90px 24px 24px 274px !important;
+  padding: 90px 24px 80px 274px !important;
+  /* Added 80px bottom padding for sticky footer */
   min-height: 100vh;
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 24px;
+  right: 24px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 /* Sidebar Menu */
@@ -297,10 +321,41 @@ body {
 }
 
 .table tbody td {
-  padding: 8px 24px !important;
+  padding: 10px 24px !important;
   border-top: 1px solid var(--border-color) !important;
   color: var(--text-main);
   vertical-align: middle !important;
+}
+
+/* Action Button Spacing & Style */
+.table td .btn-group {
+  display: flex !important;
+  gap: 8px !important;
+  justify-content: center !important;
+}
+
+.table td .btn-group .btn {
+  float: none !important;
+  border-radius: 8px !important;
+  margin: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: none !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: all var(--transition-fast) !important;
+}
+
+.table td .btn-group .btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.table td .btn-group .btn .material-symbols-outlined {
+  font-size: 18px !important;
 }
 
 .img-avatar {
