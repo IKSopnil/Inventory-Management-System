@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #c5a059;
+  /* Muted Gold for accent */
+  --primary-hover: #b08d55;
+  --secondary: #1e293b;
+  /* Deep Navy for contrast */
+  --background: #f9fafb;
+  /* Very light cool gray */
+  --sidebar-bg: #ffffff;
+  /* White sidebar */
+  --sidebar-hover: #f1f5f9;
+  --card-bg: #ffffff;
+  --text-main: #334155;
+  /* Slate 700 */
+  --text-muted: #94a3b8;
+  /* Slate 400 */
+  --border-color: #e2e8f0;
+  --header-bg: #ffffff;
+}
+
+body {
+  font-family: 'Inter', sans-serif !important;
+  background: var(--background) !important;
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* Global Icon Standardization */
+.fa,
+.fas,
+.far,
+.fab,
+.fa-solid,
+.fa-regular,
+.fa-brands,
+[class^="fa-"],
+[class*=" fa-"],
+.material-symbols-outlined {
+  font-size: 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  width: 24px !important;
+  height: 24px !important;
+  line-height: 1 !important;
+  transition: all 0.2s ease;
+}
+
+.input-group-addon .material-symbols-outlined {
+  font-size: 20px !important;
+  color: var(--primary);
+}
+
+.img-avatar {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Page Layout Fixes */
+.page {
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 100px 15px 0 270px !important;
+  min-height: 100vh;
+}
+
+.container-fluid {
+  flex: 1 0 auto !important;
+  padding-bottom: 40px !important;
+}
+
+#header {
+  height: 70px !important;
+  background: var(--header-bg) !important;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#header .logo {
+  width: 250px !important;
+  height: 70px !important;
+  line-height: 70px !important;
+  background: #ffffff !important;
+  border-right: 1px solid var(--border-color) !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  color: var(--primary) !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+}
+
+
+.sidebar {
+  width: 250px !important;
+  padding-top: 70px !important;
+  background: var(--sidebar-bg) !important;
+  border-right: 1px solid var(--border-color) !important;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.02) !important;
+}
+
+.sidebar ul li a {
+  color: #475569 !important;
+  /* Darker text for white sidebar */
+  padding: 20px 25px !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+  position: relative;
+  letter-spacing: 0.3px;
+}
+
+.sidebar ul li a i,
+.sidebar ul li a .material-symbols-outlined {
+  margin-right: 22px !important;
+  font-size: 28px !important;
+  /* Further increased icon size */
+  transition: transform 0.3s ease !important;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li.active a {
+  background: var(--sidebar-hover) !important;
+  color: var(--primary) !important;
+  /* Gold text on hover/active */
+}
+
+.sidebar ul li a:hover i,
+.sidebar ul li a:hover .material-symbols-outlined {
+  transform: scale(1.1) rotate(-5deg) !important;
+}
+
+.sidebar ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 0;
+  background: var(--primary);
+  transition: height 0.3s ease;
+  border-radius: 0 4px 4px 0;
+}
+
+.sidebar ul li a:hover::after,
+.sidebar ul li.active a::after {
+  height: 100%;
+}
+
+/* Sidebar Submenu Styling */
+.sidebar .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #f8fafc !important;
+  /* Lighter submenu background */
+}
+
+.sidebar .submenu li a {
+  padding: 14px 25px 14px 75px !important;
+  font-size: 15px !important;
+  /* Slightly larger submenus too */
+  color: #94a3b8 !important;
+  border: none !important;
+}
+
+.sidebar .submenu li a:hover {
+  background: #f1f5f9 !important;
+  color: var(--primary) !important;
+}
+
+.sidebar .submenu li a::after {
+  display: none !important;
+  /* Hide indicator for submenus */
+}
+
+/* Login Page Modernization */
+.login-page {
+  width: 400px;
+  margin: 10% auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+.login-page h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.login-page h4 {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+/* Dashboard Panel Icons */
+.panel-box {
+  display: flex !important;
+  background: #fff !important;
+  border-radius: 16px !important;
+  /* Rounder corners */
+  overflow: hidden !important;
+  margin-bottom: 20px !important;
+  border: 1px solid rgba(0, 0, 0, 0.03) !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05) !important;
+  /* Luxurious soft shadow */
+}
+
+.panel-icon {
+  width: 80px !important;
+  height: 80px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+}
+
+.panel-icon i,
+.panel-icon .material-symbols-outlined {
+  font-size: 32px !important;
+}
+
+.panel-value {
+  flex: 1 !important;
+  padding: 15px 20px !important;
+  text-align: right !important;
+}
+
+.panel-value h2 {
+  margin: 0 !important;
+  font-weight: 700 !important;
+}
+
+/* Color Utilities */
+.bg-green {
+  background-color: #10b981 !important;
+}
+
+.bg-blue {
+  background-color: #3b82f6 !important;
+}
+
+.bg-yellow {
+  background-color: #f59e0b !important;
+}
+
+.bg-red {
+  background-color: #ef4444 !important;
+}
+
+.bg-blue2 {
+  background-color: #6366f1 !important;
+}
+
+/* Component Modernization */
+.panel {
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.panel-default>.panel-heading {
+  background: #fff !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  padding: 15px 20px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.form-control {
+  border-radius: 8px !important;
+  height: 42px !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.form-control:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
+}
+
+.btn {
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #c5a059 0%, #a38241 100%) !important;
+  color: #fff;
+  border: none !important;
+  box-shadow: 0 2px 4px rgba(197, 160, 89, 0.2) !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #b08d55 0%, #8f7034 100%) !important;
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background: #ef4444 !important;
+}
+
+.btn-success {
+  background: #10b981 !important;
+}
+
+/* User Menu Premium Look */
+.profile a.toggle {
+  background: #f1f5f9 !important;
+  border: 1px solid var(--border-color) !important;
+  padding: 5px 15px 5px 5px !important;
+}
+
+/* Design System: Status Badges */
+.badge {
+  padding: 5px 12px !important;
+  border-radius: 20px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.badge-success {
+  background: #d1fae5 !important;
+  color: #065f46 !important;
+}
+
+.badge-warning {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+}
+
+.badge-danger {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}
+
+.badge-info {
+  background: #e0f2fe !important;
+  color: #075985 !important;
+}
+
+/* Spacing & Layout Utilities */
+.p-20 {
+  padding: 20px !important;
+}
+
+.p-10 {
+  padding: 10px !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.mt-10 {
+  margin-top: 10px !important;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+/* Table Refinement */
+.table {
+  border: none !important;
+  margin-bottom: 0 !important;
+}
+
+.table thead th {
+  background: #f8fafc !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-muted) !important;
+  font-size: 12px !important;
+  padding: 15px !important;
+}
+
+.table tbody td {
+  padding: 15px !important;
+  border-top: 1px solid #f1f5f9 !important;
+  vertical-align: middle !important;
+}
+
+/* Form Group Spacing */
+.form-group {
+  margin-bottom: 25px !important;
+}
+
+.form-group label {
+  font-weight: 500 !important;
+  color: var(--text-muted) !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
+/* Quick Access Cards */
+.quick-card {
+  transition: all 0.3s ease !important;
+  border: 1px solid transparent !important;
+}
+
+.quick-card:hover {
+  transform: translateY(-5px) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* Enhanced Dashboard Cards */
+.quick-card:hover .panel-box {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  border-color: var(--primary) !important;
+}
+
+/* Modern Footer Styling */
+footer {
+  flex-shrink: 0 !important;
+  margin-top: auto !important;
+  padding: 30px 15px !important;
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid var(--border-color) !important;
+  text-align: center !important;
+  color: var(--text-muted);
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+footer p {
+  margin: 0 !important;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+footer a {
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+footer a:hover {
+  opacity: 0.8;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .page {
+    padding-left: 15px !important;
+  }
+
+  .sidebar {
+    left: -250px;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+}
