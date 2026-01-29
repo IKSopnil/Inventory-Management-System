@@ -20,7 +20,7 @@ $sales = monthlySales($year);
       <div class="panel-heading clearfix">
         <strong>
           <span class="material-symbols-outlined">calendar_month</span>
-          <span>Monthly Sales</span>
+          <span><?php echo __('monthly_sales'); ?></span>
         </strong>
       </div>
       <div class="panel-body">
@@ -28,10 +28,10 @@ $sales = monthlySales($year);
           <thead>
             <tr>
               <th class="text-center" style="width: 50px;">#</th>
-              <th> Product name </th>
-              <th class="text-center" style="width: 15%;"> Quantity sold</th>
-              <th class="text-center" style="width: 15%;"> Total </th>
-              <th class="text-center" style="width: 15%;"> Date </th>
+              <th> <?php echo __('product_name'); ?> </th>
+              <th class="text-center" style="width: 15%;"> <?php echo __('quantity_sold'); ?></th>
+              <th class="text-center" style="width: 15%;"> <?php echo __('total'); ?> </th>
+              <th class="text-center" style="width: 15%;"> <?php echo __('month'); ?> </th>
             </tr>
           </thead>
           <tbody>

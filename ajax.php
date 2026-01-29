@@ -26,6 +26,25 @@ if (isset($_POST['product_name']) && strlen($_POST['product_name'])) {
 }
 ?>
 <?php
+// Sales Express Analytics
+if (isset($_POST['stats_range'])) {
+  $range = $_POST['stats_range'];
+  $stats = find_sales_analytics($range);
+  $labels = [];
+  $totals = [];
+
+  foreach ($stats as $s) {
+    $labels[] = $s['label'];
+    $totals[] = (float) $s['total'];
+  }
+
+  echo json_encode([
+    'labels' => $labels,
+    'totals' => $totals
+  ]);
+}
+?>
+<?php
 // find all product
 if (isset($_POST['p_name']) && strlen($_POST['p_name'])) {
   $product_title = remove_junk($db->escape($_POST['p_name']));

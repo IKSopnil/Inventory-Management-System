@@ -75,8 +75,9 @@ if (isset($_POST['add'])) {
               <option value="0">Deactive</option>
             </select>
           </div>
-          <div class="form-group clearfix">
-            <button type="submit" name="add" class="btn btn-primary">Create Group</button>
+          <div class="form-group clearfix text-right">
+            <a href="group.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
+            <button type="submit" name="add" class="btn btn-primary"><?php echo __('create_group'); ?></button>
           </div>
         </form>
       </div>

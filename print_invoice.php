@@ -1,7 +1,7 @@
 <?php
 require_once('includes/load.php');
 // Checkin What level user has permission to view this page
-page_require_level(1);
+page_require_level(3);
 $id = (int) $_GET['id'];
 $invoice = $invoice_obj->find_by_id($id);
 if (!$invoice) {

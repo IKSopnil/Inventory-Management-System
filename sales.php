@@ -56,6 +56,19 @@ $sales = find_all_sale();
                 <td class="text-center"><?php echo $sale['date']; ?></td>
                 <td class="text-center">
                   <div class="btn-group">
+                    <?php
+                    $existing_invoice = $invoice_obj->find_by_sale_id($sale['id']);
+                    if ($existing_invoice): ?>
+                      <a href="print_invoice.php?id=<?php echo (int) $existing_invoice['id']; ?>"
+                        class="btn btn-info btn-xs" title="View Invoice" data-toggle="tooltip" target="_blank">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                      </a>
+                    <?php else: ?>
+                      <a href="add_invoice.php?sale_id=<?php echo (int) $sale['id']; ?>" class="btn btn-primary btn-xs"
+                        title="Convert to Invoice" data-toggle="tooltip">
+                        <span class="material-symbols-outlined">description</span>
+                      </a>
+                    <?php endif; ?>
                     <a href="edit_sale.php?id=<?php echo (int) $sale['id']; ?>" class="btn btn-warning btn-xs"
                       title="Edit" data-toggle="tooltip">
                       <span class="material-symbols-outlined">edit</span>

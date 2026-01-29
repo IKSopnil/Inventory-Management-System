@@ -1,8 +1,9 @@
 <?php
 require_once('includes/load.php');
 // Checkin What level user has permission to view this page
-page_require_level(1);
+page_require_level(3);
 $all_sales = find_all_sale();
+$get_sale_id = isset($_GET['sale_id']) ? (int) $_GET['sale_id'] : '';
 ?>
 <?php
 if (isset($_POST['add_invoice'])) {
@@ -73,7 +74,8 @@ if (isset($_POST['add_invoice'])) {
                         <select class="form-control" name="sale_id" required>
                             <option value="">Select Sale</option>
                             <?php foreach ($all_sales as $sale): ?>
-                                <option value="<?php echo (int) $sale['id']; ?>">
+                                <option value="<?php echo (int) $sale['id']; ?>" <?php if ($get_sale_id == $sale['id'])
+                                        echo 'selected'; ?>>
                                     Sale ID:
                                     <?php echo (int) $sale['id']; ?> - Product:
                                     <?php echo $sale['name']; ?> - Total: $
@@ -82,7 +84,11 @@ if (isset($_POST['add_invoice'])) {
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <button type="submit" name="add_invoice" class="btn btn-primary">Generate Invoice</button>
+                    <div class="form-group text-right">
+                        <a href="invoices.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
+                        <button type="submit" name="add_invoice"
+                            class="btn btn-primary"><?php echo __('generate_invoice'); ?></button>
+                    </div>
                 </form>
             </div>
         </div>

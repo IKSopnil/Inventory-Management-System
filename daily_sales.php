@@ -6,9 +6,8 @@ page_require_level(3);
 ?>
 
 <?php
-$year = date('Y');
-$month = date('m');
-$sales = dailySales($year, $month);
+$date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
+$sales = find_sales_by_day($date);
 ?>
 <?php include_once('layouts/header.php'); ?>
 <div class="row">
@@ -20,20 +19,33 @@ $sales = dailySales($year, $month);
   <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
-        <strong>
-          <span class="material-symbols-outlined">calendar_today</span>
-          <span>Daily Sales</span>
-        </strong>
+        <div class="pull-left">
+          <strong>
+            <span class="material-symbols-outlined">calendar_today</span>
+            <span><?php echo __('daily_sales'); ?>: <?php echo date('F j, Y', strtotime($date)); ?></span>
+          </strong>
+        </div>
+        <div class="pull-right">
+          <form action="daily_sales.php" method="GET" class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control datePicker" name="date" value="<?php echo $date; ?>"
+                placeholder="<?php echo __('select_date'); ?>" style="width: 150px; border-radius: 20px;">
+            </div>
+            <button type="submit" class="btn btn-primary" style="border-radius: 20px;">
+              <span class="material-symbols-outlined">search</span>
+            </button>
+          </form>
+        </div>
       </div>
       <div class="panel-body">
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
               <th class="text-center" style="width: 50px;">#</th>
-              <th> Product name </th>
-              <th class="text-center" style="width: 15%;"> Quantity sold</th>
-              <th class="text-center" style="width: 15%;"> Total </th>
-              <th class="text-center" style="width: 15%;"> Date </th>
+              <th> <?php echo __('product_name'); ?> </th>
+              <th class="text-center" style="width: 15%;"> <?php echo __('quantity_sold'); ?></th>
+              <th class="text-center" style="width: 15%;"> <?php echo __('total'); ?> </th>
+              <th class="text-center" style="width: 15%;"> <?php echo __('date'); ?> </th>
             </tr>
           </thead>
           <tbody>

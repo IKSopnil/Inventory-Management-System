@@ -42,4 +42,10 @@
         </a> </li>
     </ul>
   </li>
+  <li>
+    <a href="invoices.php">
+      <span class="material-symbols-outlined">receipt_long</span>
+      <span><?php echo __('invoices'); ?></span>
+    </a>
+  </li>
 </ul>

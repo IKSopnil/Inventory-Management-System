@@ -71,6 +71,164 @@ $recent_sales = find_recent_sale_added('5')
 </div>
 
 <div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <div class="pull-left">
+          <strong>
+            <span class="material-symbols-outlined text-success">analytics</span>
+            <span><?php echo __('sales_analytics'); ?></span>
+          </strong>
+        </div>
+        <div class="pull-right">
+          <select id="chart-range" class="form-control input-sm" style="width: 120px; border-radius: 20px;">
+            <option value="7d"><?php echo __('last_7_days'); ?></option>
+            <option value="30d"><?php echo __('last_30_days'); ?></option>
+            <option value="6m"><?php echo __('last_6_months'); ?></option>
+            <option value="1y"><?php echo __('last_1_year'); ?></option>
+          </select>
+        </div>
+      </div>
+      <div class="panel-body">
+        <canvas id="salesChart" style="width: 100%; height: 300px;"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php
+$sales_data = find_sales_analytics('7d');
+$labels = [];
+$totals = [];
+foreach ($sales_data as $data) {
+  $labels[] = $data['label'];
+  $totals[] = (float) $data['total'];
+}
+?>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const isDark = document.body.classList.contains('dark-mode');
+
+    let salesChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: <?php echo json_encode($labels); ?>,
+        datasets: [{
+          label: '<?php echo __('total_sales'); ?> ($)',
+          data: <?php echo json_encode($totals); ?>,
+          borderColor: '#d4af37',
+          backgroundColor: 'rgba(212, 175, 55, 0.1)',
+          borderWidth: 3,
+          fill: true,
+          tension: 0.4,
+          pointBackgroundColor: '#d4af37',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          pointRadius: 5,
+          pointHoverRadius: 7
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+            backgroundColor: isDark ? '#1e293b' : '#fff',
+            titleColor: isDark ? '#f8fafc' : '#1e293b',
+            bodyColor: isDark ? '#f8fafc' : '#1e293b',
+            borderColor: '#e2e8f0',
+            borderWidth: 1,
+            padding: 12,
+            displayColors: false,
+            callbacks: {
+              label: function (context) {
+                return '$' + context.parsed.y.toLocaleString();
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              color: isDark ? '#94a3b8' : '#64748b',
+              font: {
+                family: "'Inter', sans-serif",
+                size: 11
+              }
+            }
+          },
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
+              borderDash: [5, 5]
+            },
+            ticks: {
+              color: isDark ? '#94a3b8' : '#64748b',
+              font: {
+                family: "'Inter', sans-serif",
+                size: 11
+              },
+              callback: function (value) {
+                return '$' + value;
+              }
+            }
+          }
+        }
+      }
+    });
+
+    // Range Switcher
+    $('#chart-range').on('change', function () {
+      const range = $(this).val();
+      $.ajax({
+        url: 'ajax.php',
+        method: 'POST',
+        data: {
+          stats_range: range
+        },
+        dataType: 'json',
+        success: function (res) {
+          salesChart.data.labels = res.labels;
+          salesChart.data.datasets[0].data = res.totals;
+          salesChart.update();
+        }
+      });
+    });
+
+    // Handle theme toggle chart update
+    const themeObserver = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (mutation.attributeName === "class") {
+          const isDarkNow = document.body.classList.contains('dark-mode');
+          salesChart.options.scales.y.grid.color = isDarkNow ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)';
+          salesChart.options.scales.x.ticks.color = isDarkNow ? '#94a3b8' : '#64748b';
+          salesChart.options.scales.y.ticks.color = isDarkNow ? '#94a3b8' : '#64748b';
+          salesChart.options.plugins.tooltip.backgroundColor = isDarkNow ? '#1e293b' : '#fff';
+          salesChart.options.plugins.tooltip.titleColor = isDarkNow ? '#f8fafc' : '#1e293b';
+          salesChart.options.plugins.tooltip.bodyColor = isDarkNow ? '#f8fafc' : '#1e293b';
+          salesChart.update();
+        }
+      });
+    });
+
+    themeObserver.observe(document.body, {
+      attributes: true
+    });
+  });
+</script>
+
+<div class="row">
   <div class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">

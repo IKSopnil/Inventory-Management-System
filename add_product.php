@@ -117,8 +117,9 @@ if (isset($_POST['add_product'])) {
             </div>
 
             <div class="text-right mt-10">
+              <a href="product.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
               <button type="submit" name="add_product" class="btn btn-primary btn-lg">
-                <span class="material-symbols-outlined">add</span> Save Product
+                <span class="material-symbols-outlined">add</span> <?php echo __('save_product'); ?>
               </button>
             </div>
           </form>

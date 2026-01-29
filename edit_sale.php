@@ -96,7 +96,9 @@ if (isset($_POST['update_sale'])) {
                     value="<?php echo remove_junk($sale['date']); ?>">
                 </td>
                 <td>
-                  <button type="submit" name="update_sale" class="btn btn-primary">Update sale</button>
+                  <a href="sales.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
+                  <button type="submit" name="update_sale"
+                    class="btn btn-primary"><?php echo __('update_sale'); ?></button>
                 </td>
               </form>
             </tr>

@@ -87,7 +87,11 @@ if (isset($_POST['update_settings'])) {
                         <textarea class="form-control" name="address"
                             rows="4"><?php echo $settings['address']; ?></textarea>
                     </div>
-                    <button type="submit" name="update_settings" class="btn btn-primary">Save Settings</button>
+                    <div class="form-group text-right">
+                        <a href="admin.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
+                        <button type="submit" name="update_settings"
+                            class="btn btn-primary"><?php echo __('save_settings'); ?></button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -95,9 +95,13 @@ if (isset($_POST['update'])) {
             <input type="text" class="form-control" name="username"
               value="<?php echo remove_junk(ucwords($user['username'])); ?>">
           </div>
-          <div class="form-group clearfix">
-            <a href="change_password.php" title="change password" class="btn btn-danger pull-right">Change Password</a>
-            <button type="submit" name="update" class="btn btn-info">Update</button>
+          <div class="form-group clearfix text-right">
+            <a href="admin.php" class="btn btn-default">
+              <?php echo __('cancel'); ?>
+            </a>
+            <button type="submit" name="update" class="btn btn-info">
+              <?php echo __('update'); ?>
+            </button>
           </div>
         </form>
       </div>

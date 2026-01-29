@@ -55,7 +55,10 @@ if (isset($_POST['edit_cat'])) {
             <input type="text" class="form-control" name="categorie-name"
               value="<?php echo remove_junk(ucfirst($categorie['name'])); ?>">
           </div>
-          <button type="submit" name="edit_cat" class="btn btn-primary">Update categorie</button>
+          <div class="form-group text-right">
+            <a href="categorie.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
+            <button type="submit" name="edit_cat" class="btn btn-primary"><?php echo __('update_categorie'); ?></button>
+          </div>
         </form>
       </div>
     </div>

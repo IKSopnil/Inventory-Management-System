@@ -86,6 +86,16 @@ class Invoice
     }
 
     /*--------------------------------------------------------------*/
+    /* Find invoice by sale_id
+    /*--------------------------------------------------------------*/
+    public function find_by_sale_id($sale_id)
+    {
+        $sale_id = (int) $sale_id;
+        $sql = $this->db->query("SELECT * FROM invoices WHERE sale_id='{$sale_id}' LIMIT 1");
+        return $this->db->fetch_assoc($sql);
+    }
+
+    /*--------------------------------------------------------------*/
     /* Generate Invoice Number
     /*--------------------------------------------------------------*/
     public function generate_invoice_no()

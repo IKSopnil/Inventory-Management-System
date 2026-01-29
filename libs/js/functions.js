@@ -104,8 +104,13 @@ $(document).ready(function () {
     //tooltip
     $('[data-toggle="tooltip"]').tooltip();
 
-    $('.submenu-toggle').click(function () {
-        $(this).parent().children('ul.submenu').toggle(200);
+    $('.submenu-toggle').click(function (e) {
+        e.preventDefault();
+        var parent = $(this).parent();
+        var submenu = parent.children('.submenu');
+        submenu.slideToggle(200);
+        parent.toggleClass('active');
+        parent.siblings().removeClass('active').children('.submenu').slideUp(200);
     });
     //suggetion for finding product names
     suggetion();
@@ -127,9 +132,12 @@ $(document).ready(function () {
     var currentPath = window.location.pathname.split("/").pop();
     $('.sidebar ul li a').each(function () {
         var linkPath = $(this).attr('href');
-        if (linkPath === currentPath) {
+        if (linkPath && linkPath !== "#" && linkPath === currentPath) {
             $(this).parent().addClass('active');
-            $(this).closest('.submenu').show();
+            var $submenu = $(this).closest('.submenu');
+            if ($submenu.length) {
+                $submenu.show().parent().addClass('active');
+            }
         }
     });
 

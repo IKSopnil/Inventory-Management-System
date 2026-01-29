@@ -256,6 +256,12 @@ function dailySales($year, $month)
   global $sale_obj;
   return $sale_obj->daily_sales($year, $month);
 }
+
+function find_sales_by_day($date)
+{
+  global $sale_obj;
+  return $sale_obj->find_sales_by_date($date);
+}
 /*--------------------------------------------------------------*/
 /* Function for Generate Monthly sales report
 /*--------------------------------------------------------------*/
@@ -263,6 +269,12 @@ function monthlySales($year)
 {
   global $sale_obj;
   return $sale_obj->monthly_sales($year);
+}
+
+function find_sales_analytics($limit = 10)
+{
+  global $sale_obj;
+  return $sale_obj->get_sales_analytics($limit);
 }
 
 ?>

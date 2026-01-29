@@ -70,8 +70,9 @@ if (isset($_POST['add_user'])) {
               <?php endforeach; ?>
             </select>
           </div>
-          <div class="form-group clearfix">
-            <button type="submit" name="add_user" class="btn btn-primary">Add User</button>
+          <div class="form-group clearfix text-right">
+            <a href="users.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
+            <button type="submit" name="add_user" class="btn btn-primary"><?php echo __('add_user'); ?></button>
           </div>
         </form>
       </div>

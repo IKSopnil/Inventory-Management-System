@@ -103,13 +103,16 @@ if (isset($_POST['update-pass'])) {
             <select class="form-control" name="status">
               <option <?php if ($e_user['status'] === '1')
                 echo 'selected="selected"'; ?>value="1">
-                <?php echo __('active'); ?></option>
+                <?php echo __('active'); ?>
+              </option>
               <option <?php if ($e_user['status'] === '0')
                 echo 'selected="selected"'; ?> value="0">
-                <?php echo __('inactive'); ?></option>
+                <?php echo __('inactive'); ?>
+              </option>
             </select>
           </div>
-          <div class="form-group clearfix">
+          <div class="form-group clearfix text-right">
+            <a href="users.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
             <button type="submit" name="update" class="btn btn-info"><?php echo __('update'); ?></button>
           </div>
         </form>
@@ -131,9 +134,9 @@ if (isset($_POST['update-pass'])) {
             <label for="password" class="control-label"><?php echo __('password'); ?></label>
             <input type="password" class="form-control" name="password" placeholder="<?php echo __('new_password'); ?>">
           </div>
-          <div class="form-group clearfix">
-            <button type="submit" name="update-pass"
-              class="btn btn-danger pull-right"><?php echo __('update'); ?></button>
+          <div class="form-group clearfix text-right">
+            <a href="users.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
+            <button type="submit" name="update-pass" class="btn btn-danger"><?php echo __('update'); ?></button>
           </div>
         </form>
       </div>

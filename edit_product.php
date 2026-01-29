@@ -157,7 +157,10 @@ if (isset($_POST['product'])) {
                 </div>
               </div>
             </div>
-            <button type="submit" name="product" class="btn btn-danger">Update</button>
+            <div class="text-right mt-10">
+              <a href="product.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
+              <button type="submit" name="product" class="btn btn-danger"><?php echo __('update'); ?></button>
+            </div>
           </form>
         </div>
       </div>

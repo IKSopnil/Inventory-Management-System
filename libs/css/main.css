@@ -104,6 +104,8 @@ body {
   box-shadow: var(--shadow-lg) !important;
   padding: 8px !important;
   min-width: 200px !important;
+  right: 0 !important;
+  left: auto !important;
 }
 
 .dropdown-menu>li>a {
@@ -185,9 +187,20 @@ body {
 }
 
 .sidebar ul li a:hover,
-.sidebar ul li.active a {
+.sidebar ul li.active>a {
   background: var(--bg-active) !important;
   color: var(--color-primary) !important;
+}
+
+/* Sidebar Submenu Reset */
+.sidebar .submenu {
+  display: none;
+  padding: 4px 0 4px 12px !important;
+  background: transparent !important;
+}
+
+.sidebar li.active>.submenu {
+  display: block;
 }
 
 /* Dashboard Stat Cards */
@@ -276,17 +289,25 @@ body {
 .table thead th {
   background: var(--bg-body) !important;
   color: var(--text-muted) !important;
-  font-size: 12px !important;
+  font-size: 11px !important;
   font-weight: 600 !important;
   text-transform: uppercase;
-  padding: 16px 24px !important;
+  padding: 10px 24px !important;
   border-bottom: 1px solid var(--border-color) !important;
 }
 
 .table tbody td {
-  padding: 16px 24px !important;
+  padding: 8px 24px !important;
   border-top: 1px solid var(--border-color) !important;
   color: var(--text-main);
+  vertical-align: middle !important;
+}
+
+.img-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: cover !important;
+  display: block;
 }
 
 /* Modern Badges */

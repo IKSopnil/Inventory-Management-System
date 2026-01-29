@@ -44,6 +44,12 @@ return [
     'total_products' => 'Total Products',
     'total_users' => 'Active Users',
     'total_categories' => 'Categories',
+    'sales_analytics' => 'Sales Analytics',
+    'last_10_days' => 'Last 10 Days',
+    'last_7_days' => 'Last 7 Days',
+    'last_30_days' => 'Last 30 Days',
+    'last_6_months' => 'Last 6 Months',
+    'last_1_year' => 'Last 1 Year',
 
     // Table Headers
     'product' => 'Product',
@@ -60,8 +66,10 @@ return [
     'added' => 'Added',
     'actions' => 'Actions',
     'quantity' => 'Quantity',
+    'quantity_sold' => 'Quantity Sold',
     'total' => 'Total',
     'date' => 'Date',
+    'month' => 'Month',
     'name' => 'Name',
     'status' => 'Status',
 
@@ -81,6 +89,7 @@ return [
     'upload' => 'Upload',
     'download' => 'Download',
     'search' => 'Search',
+    'select_date' => 'Select Date',
 
     // Product Related
     'all_product' => 'All Products',
