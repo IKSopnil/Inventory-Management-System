@@ -1,0 +1,115 @@
+/* 
+ * Simplified Dark Mode Styles
+ * Only overrides essential legacy global styles that aren't yet fully converted to design system tokens
+ */
+
+.dark-mode .panel-default>.panel-heading {
+    background: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border-bottom-color: var(--border-color) !important;
+}
+
+.dark-mode .table>thead>tr>th {
+    background: var(--bg-body) !important;
+    color: var(--text-muted) !important;
+    border-bottom-color: var(--border-color) !important;
+}
+
+.dark-mode .form-control {
+    background: var(--bg-body) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+.dark-mode .sidebar .submenu {
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-mode .sidebar ul li a:hover,
+.dark-mode .sidebar ul li.active a {
+    background: var(--bg-active) !important;
+}
+
+/* Modals and Dropdowns */
+.dark-mode .modal-content,
+.dark-mode .dropdown-menu {
+    background: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.dark-mode .dropdown-menu>li>a {
+    color: var(--text-main) !important;
+}
+
+.dark-mode .dropdown-menu>li>a:hover {
+    background: var(--bg-active) !important;
+}
+
+/* List Groups */
+.dark-mode .list-group-item {
+    background: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+/* Table Stripe Alternative */
+.dark-mode .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Fix product page icon overlaps */
+.dark-mode .material-symbols-outlined {
+    /* Ensure icons don't have conflicting background or filter in dark mode */
+    background: transparent !important;
+    color: inherit !important;
+}
+
+.dark-mode .text-muted {
+    color: var(--text-muted) !important;
+}
+
+.dark-mode .btn-info,
+.dark-mode .btn-success,
+.dark-mode .btn-warning,
+.dark-mode .btn-danger {
+    /* Ensure icon colors inside buttons stay visible */
+    color: #fff !important;
+}
+
+.dark-mode .btn-warning {
+    color: #1e293b !important;
+    /* Keep warning text/icon dark for contrast */
+}
+
+/* Jumbotron/Well Fix */
+.dark-mode .jumbotron,
+.dark-mode .well {
+    background: var(--bg-sidebar) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: inset var(--shadow-sm);
+}
+
+.dark-mode .alert {
+    background: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+}
+
+.dark-mode .pagination>li>a,
+.dark-mode .pagination>li>span {
+    background: var(--bg-input) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-muted) !important;
+}
+
+.dark-mode .pagination>.active>a,
+.dark-mode .pagination>.active>span {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #fff !important;
+}
+
+.dark-mode hr {
+    border-top-color: var(--border-color) !important;
+    opacity: 0.3;
+}

@@ -19,24 +19,31 @@ $sales = find_all_sale();
       <div class="panel-heading clearfix">
         <strong>
           <span class="material-symbols-outlined">shopping_cart</span>
-          <span>All Sales</span>
+          <span><?php echo __('all_sales'); ?></span>
         </strong>
         <div class="pull-right">
-          <a href="add_sale.php" class="btn btn-primary">Add sale</a>
+          <a href="add_sale.php" class="btn btn-primary"><?php echo __('add_sale'); ?></a>
           <a href="export_csv.php?type=sales" class="btn btn-success"><span
-              class="material-symbols-outlined">file_download</span> Export CSV</a>
+              class="material-symbols-outlined">file_download</span> <?php echo __('export_csv'); ?></a>
         </div>
       </div>
       <div class="panel-body">
-        <table class="table table-bordered table-striped">
+        <div class="list-filter-container">
+          <div class="search-input-wrapper">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" id="sales-search" class="form-control search-input"
+              placeholder="Search sales by product name or date...">
+          </div>
+        </div>
+        <table class="table table-bordered table-striped" id="sales-table">
           <thead>
             <tr>
               <th class="text-center" style="width: 50px;">#</th>
-              <th> Product name </th>
-              <th class="text-center" style="width: 15%;"> Quantity</th>
-              <th class="text-center" style="width: 15%;"> Total </th>
-              <th class="text-center" style="width: 15%;"> Date </th>
-              <th class="text-center" style="width: 100px;"> Actions </th>
+              <th> <?php echo __('product_name_label'); ?> </th>
+              <th class="text-center" style="width: 15%;"> <?php echo __('quantity'); ?></th>
+              <th class="text-center" style="width: 15%;"> <?php echo __('total'); ?> </th>
+              <th class="text-center" style="width: 15%;"> <?php echo __('date'); ?> </th>
+              <th class="text-center" style="width: 100px;"> <?php echo __('actions'); ?> </th>
             </tr>
           </thead>
           <tbody>

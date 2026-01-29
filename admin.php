@@ -22,57 +22,49 @@ $recent_sales = find_recent_sale_added('5')
 </div>
 <div class="row">
   <div class="col-md-3">
-    <a href="users.php" class="quick-card">
-      <div class="panel panel-box clearfix">
-        <div class="panel-icon pull-left bg-blue2">
-          <span class="material-symbols-outlined">person_search</span>
-        </div>
-        <div class="panel-value pull-right">
-          <h2 class="m-0"> <?php echo $c_user['total']; ?> </h2>
-          <p class="text-muted">Active Users</p>
-        </div>
+    <a href="users.php" class="panel-box">
+      <div class="panel-icon bg-blue2">
+        <span class="material-symbols-outlined">person_search</span>
+      </div>
+      <div class="panel-value">
+        <h2> <?php echo $c_user['total']; ?> </h2>
+        <p><?php echo __('total_users'); ?></p>
       </div>
     </a>
   </div>
 
   <div class="col-md-3">
-    <a href="categorie.php" class="quick-card">
-      <div class="panel panel-box clearfix">
-        <div class="panel-icon pull-left bg-red">
-          <span class="material-symbols-outlined">label</span>
-        </div>
-        <div class="panel-value pull-right">
-          <h2 class="m-0"> <?php echo $c_categorie['total']; ?> </h2>
-          <p class="text-muted">Categories</p>
-        </div>
+    <a href="categorie.php" class="panel-box">
+      <div class="panel-icon bg-red">
+        <span class="material-symbols-outlined">label</span>
+      </div>
+      <div class="panel-value">
+        <h2> <?php echo $c_categorie['total']; ?> </h2>
+        <p><?php echo __('total_categories'); ?></p>
       </div>
     </a>
   </div>
 
   <div class="col-md-3">
-    <a href="product.php" class="quick-card">
-      <div class="panel panel-box clearfix">
-        <div class="panel-icon pull-left bg-blue">
-          <span class="material-symbols-outlined">inventory</span>
-        </div>
-        <div class="panel-value pull-right">
-          <h2 class="m-0"> <?php echo $c_product['total']; ?> </h2>
-          <p class="text-muted">Total Products</p>
-        </div>
+    <a href="product.php" class="panel-box">
+      <div class="panel-icon bg-blue">
+        <span class="material-symbols-outlined">inventory</span>
+      </div>
+      <div class="panel-value">
+        <h2> <?php echo $c_product['total']; ?> </h2>
+        <p><?php echo __('total_products'); ?></p>
       </div>
     </a>
   </div>
 
   <div class="col-md-3">
-    <a href="sales.php" class="quick-card">
-      <div class="panel panel-box clearfix">
-        <div class="panel-icon pull-left bg-green">
-          <span class="material-symbols-outlined">payments</span>
-        </div>
-        <div class="panel-value pull-right">
-          <h2 class="m-0"> <?php echo $c_sale['total']; ?></h2>
-          <p class="text-muted">Total Sales</p>
-        </div>
+    <a href="sales.php" class="panel-box">
+      <div class="panel-icon bg-green">
+        <span class="material-symbols-outlined">payments</span>
+      </div>
+      <div class="panel-value">
+        <h2> <?php echo $c_sale['total']; ?></h2>
+        <p><?php echo __('total_sales'); ?></p>
       </div>
     </a>
   </div>
@@ -84,22 +76,22 @@ $recent_sales = find_recent_sale_added('5')
       <div class="panel-heading">
         <strong>
           <span class="material-symbols-outlined text-danger">trending_up</span>
-          <span>Best Selling Products</span>
+          <span><?php echo __('highest_selling_products'); ?></span>
         </strong>
       </div>
       <div class="panel-body p-0">
         <table class="table">
           <thead>
             <tr>
-              <th>Product</th>
-              <th class="text-center">Sold</th>
-              <th class="text-center">In-Stock</th>
+              <th><?php echo __('product'); ?></th>
+              <th class="text-center"><?php echo __('sold'); ?></th>
+              <th class="text-center"><?php echo __('stock'); ?></th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($products_sold as $product_sold): ?>
               <tr>
-                <td><?php echo remove_junk(first_character($product_sold['name'])); ?></td>
+                <td style="font-weight: 500;"><?php echo remove_junk(first_character($product_sold['name'])); ?></td>
                 <td class="text-center"><span
                     class="badge badge-success"><?php echo (int) $product_sold['totalSold']; ?></span></td>
                 <td class="text-center"><span
@@ -117,16 +109,16 @@ $recent_sales = find_recent_sale_added('5')
       <div class="panel-heading">
         <strong>
           <span class="material-symbols-outlined text-primary">receipt_long</span>
-          <span>Recent Sale Records</span>
+          <span><?php echo __('latest_sales'); ?></span>
         </strong>
       </div>
       <div class="panel-body p-0">
         <table class="table">
           <thead>
             <tr>
-              <th>Item Name</th>
-              <th>Sold Date</th>
-              <th>Amount</th>
+              <th><?php echo __('item_name'); ?></th>
+              <th><?php echo __('sold_date'); ?></th>
+              <th><?php echo __('amount'); ?></th>
             </tr>
           </thead>
           <tbody>
@@ -156,7 +148,7 @@ $recent_sales = find_recent_sale_added('5')
       <div class="panel-heading">
         <strong>
           <span class="material-symbols-outlined text-warning">add_circle</span>
-          <span>Recently Added Items</span>
+          <span><?php echo __('recently_added_products'); ?></span>
         </strong>
       </div>
       <div class="panel-body">
@@ -175,11 +167,11 @@ $recent_sales = find_recent_sale_added('5')
                 <?php endif; ?>
               </div>
               <div style="flex-grow:1;">
-                <p class="m-0" style="font-weight:700; color:var(--text-main); font-size:14px; line-height:1.2;">
+                <p class="m-0" style="font-weight:600; color:var(--text-main); font-size:14px; line-height:1.2;">
                   <?php echo remove_junk(first_character($recent_product['name'])); ?>
                 </p>
                 <small class="text-muted"
-                  style="font-weight:500;"><?php echo remove_junk(first_character($recent_product['categorie'])); ?></small>
+                  style="font-weight:400; font-size: 11px;"><?php echo remove_junk(first_character($recent_product['categorie'])); ?></small>
               </div>
               <div style="margin-left:10px; flex-shrink:0;">
                 <span class="badge badge-success"

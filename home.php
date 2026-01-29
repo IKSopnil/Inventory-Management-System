@@ -13,10 +13,10 @@ if (!$session->isUserLoggedIn()) {
   <div class="col-md-12">
     <div class="panel">
       <div class="jumbotron text-center">
-        <h1>Welcome User
-          <hr> Inventory Management System
+        <h1><?php echo __('welcome_user'); ?>
+          <hr> <?php echo __('inventory_system'); ?>
         </h1>
-        <p>Browes around to find out the pages that you can access!</p>
+        <p>Browse around to find out the pages that you can access!</p>
       </div>
     </div>
   </div>

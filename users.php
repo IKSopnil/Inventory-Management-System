@@ -31,7 +31,14 @@ $all_users = find_all_user();
         </div>
       </div>
       <div class="panel-body">
-        <table class="table table-bordered table-striped">
+        <div class="list-filter-container">
+          <div class="search-input-wrapper">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" id="user-search" class="form-control search-input"
+              placeholder="Search users by name or username...">
+          </div>
+        </div>
+        <table class="table table-bordered table-striped" id="user-table">
           <thead>
             <tr>
               <th class="text-center" style="width: 50px;">#</th>

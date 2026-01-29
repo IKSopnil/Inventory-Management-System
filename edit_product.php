@@ -92,16 +92,25 @@ if (isset($_POST['product'])) {
                   </select>
                 </div>
                 <div class="col-md-6">
-                  <select class="form-control" name="product-photo">
-                    <option value=""> No image</option>
-                    <?php foreach ($all_photo as $photo): ?>
-                      <option value="<?php echo (int) $photo['id']; ?>" <?php if ($product['media_id'] === $photo['id']):
-                            echo "selected";
-                          endif; ?>>
-                        <?php echo $photo['file_name'] ?>
-                      </option>
-                    <?php endforeach; ?>
-                  </select>
+                  <div class="media-select-wrapper" style="display:flex; align-items:center;">
+                    <select class="form-control" name="product-photo" id="product-photo-select" style="flex-grow:1;">
+                      <option value=""> No image</option>
+                      <?php foreach ($all_photo as $photo): ?>
+                        <option value="<?php echo (int) $photo['id']; ?>"
+                          data-filename="<?php echo $photo['file_name'] ?>" <?php if ($product['media_id'] === $photo['id']):
+                               echo "selected";
+                             endif; ?>>
+                          <?php echo $photo['file_name'] ?>
+                        </option>
+                      <?php endforeach; ?>
+                    </select>
+                    <?php
+                    $p_media = find_by_id('media', (int) $product['media_id']);
+                    $p_image = ($p_media) ? $p_media['file_name'] : 'no_image.png';
+                    ?>
+                    <img id="media-dropdown-preview" src="uploads/products/<?php echo $p_image; ?>"
+                      style="width: 44px; height: 44px; object-fit: cover; margin-left:10px; border-radius:8px; border:1px solid var(--border-color);">
+                  </div>
                 </div>
               </div>
             </div>

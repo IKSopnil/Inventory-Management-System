@@ -15,19 +15,27 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet" href="libs/css/main.css" />
+  <link rel="stylesheet" href="libs/css/design-system.css?v=3" />
+  <link rel="stylesheet" href="libs/css/main.css?v=3" />
+  <link rel="stylesheet" href="libs/css/dark-mode.css?v=3" />
 </head>
 
-<body>
+<body class="<?php echo get_theme_class(); ?>">
   <?php if ($session->isUserLoggedIn()): ?>
     <header id="header">
-      <div class="logo pull-left">Inventory System</div>
+      <div class="logo">Inventory System</div>
       <div class="header-content">
-        <div class="header-date pull-left">
+        <div class="header-date">
           <strong><?php echo date("F j, Y, g:i a"); ?></strong>
         </div>
-        <div class="pull-right clearfix">
+        <div class="header-nav">
           <ul class="info-menu list-inline list-unstyled">
+            <li class="header-lang-switcher">
+              <?php include_once('language_switcher.php'); ?>
+            </li>
+            <li class="header-theme-toggle">
+              <?php include_once('theme_toggle.php'); ?>
+            </li>
             <li class="profile">
               <a href="#" data-toggle="dropdown" class="toggle" aria-expanded="false">
                 <img src="uploads/users/<?php echo $user['image']; ?>" alt="user-image" class="img-circle img-inline">
@@ -37,19 +45,19 @@
                 <li>
                   <a href="profile.php?id=<?php echo (int) $user['id']; ?>">
                     <span class="material-symbols-outlined">person</span>
-                    Profile
+                    <?php echo __('profile'); ?>
                   </a>
                 </li>
                 <li>
                   <a href="edit_account.php" title="edit account">
                     <span class="material-symbols-outlined">settings</span>
-                    Settings
+                    <?php echo __('settings'); ?>
                   </a>
                 </li>
                 <li class="last">
                   <a href="logout.php">
                     <span class="material-symbols-outlined">logout</span>
-                    Logout
+                    <?php echo __('logout'); ?>
                   </a>
                 </li>
               </ul>

@@ -66,11 +66,14 @@ if (isset($_POST['update_settings'])) {
                             <div style="margin-bottom: 15px;">
                                 <?php if ($settings['logo']): ?>
                                     <img src="uploads/settings/<?php echo $settings['logo']; ?>" alt="Logo"
+                                        id="logo-preview" class="image-preview"
                                         style="max-height: 100px; border: 1px solid #ddd; padding: 5px;">
                                 <?php else: ?>
                                     <div
                                         style="height: 100px; line-height: 100px; background: #f9f9f9; border: 1px dashed #ccc;">
                                         No Logo</div>
+                                    <img id="logo-preview" class="image-preview" src=""
+                                        style="display:none; max-height: 100px; border: 1px solid #ddd; padding: 5px;">
                                 <?php endif; ?>
                             </div>
                             <div class="form-group">

@@ -57,13 +57,15 @@ if (isset($_POST['update'])) {
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-4">
-            <img class="img-circle img-size-2" src="uploads/users/<?php echo $user['image']; ?>" alt="">
+          <div class="col-md-4 text-center">
+            <img class="img-circle img-size-2 image-preview" id="account-preview"
+              src="uploads/users/<?php echo $user['image']; ?>" alt="">
+            <small class="text-muted">Preview</small>
           </div>
           <div class="col-md-8">
             <form class="form" action="edit_account.php" method="POST" enctype="multipart/form-data">
               <div class="form-group">
-                <input type="file" name="file_upload" multiple="multiple" class="btn btn-default btn-file" />
+                <input type="file" name="file_upload" class="form-control" />
               </div>
               <div class="form-group">
                 <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">

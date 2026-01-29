@@ -1,16 +1,19 @@
 <?php
 return [
+    // Login & Auth
     'login_panel' => 'Panel de Inicio de Sesión',
     'inventory_system' => 'Sistema de Gestión de Inventario',
     'username' => 'Nombre de usuario',
     'password' => 'Contraseña',
     'login' => 'Iniciar Sesión',
+
+    // Navigation
     'dashboard' => 'Tablero',
     'categories' => 'Categorías',
     'products' => 'Productos',
-    'manage_product' => 'Gestionar Producto',
-    'add_product' => 'Agregar Producto',
-    'media' => 'Medios',
+    'manage_product' => 'Gestionar Productos',
+    'add_product' => 'Agregar Productos',
+    'media' => 'Archivos Multimedia',
     'sales' => 'Ventas',
     'manage_sales' => 'Gestionar Ventas',
     'add_sale' => 'Agregar Venta',
@@ -24,16 +27,150 @@ return [
     'profile' => 'Perfil',
     'settings' => 'Configuración',
     'logout' => 'Cerrar Sesión',
+    'invoices' => 'Facturas',
+    'theme' => 'Tema',
+    'dark_mode' => 'Modo Oscuro',
+    'light_mode' => 'Modo Claro',
+
+    // Dashboard
     'welcome_user' => 'Bienvenido Usuario',
     'admin_panel' => 'Panel de Administración',
     'available_products' => 'Productos Disponibles',
     'all_products' => 'Todos los Productos',
-    'recently_added_products' => 'Productos Agregados Recientemente',
+    'recently_added_products' => 'Artículos Agregados Recientemente',
     'highest_selling_products' => 'Productos Más Vendidos',
-    'latest_sales' => 'Últimas Ventas',
+    'latest_sales' => 'Registros de Ventas Recientes',
     'total_sales' => 'Ventas Totales',
     'total_products' => 'Productos Totales',
-    'total_users' => 'Usuarios Totales',
-    'total_categories' => 'Categorías Totales',
+    'total_users' => 'Usuarios Activos',
+    'total_categories' => 'Categorías',
+
+    // Table Headers
+    'product' => 'Producto',
+    'sold' => 'Vendido',
+    'in_stock' => 'En Stock',
+    'item_name' => 'Nombre del Artículo',
+    'sold_date' => 'Fecha de Venta',
+    'amount' => 'Cantidad',
+    'photo' => 'Foto',
+    'category' => 'Categoría',
+    'stock' => 'Existencias',
+    'cost' => 'Costo',
+    'price' => 'Precio',
+    'added' => 'Agregado',
+    'actions' => 'Acciones',
+    'quantity' => 'Cantidad',
+    'total' => 'Total',
+    'date' => 'Fecha',
+    'name' => 'Nombre',
+    'status' => 'Estado',
+
+    // Buttons & Actions
+    'add_new' => 'Agregar Nuevo',
+    'edit' => 'Editar',
+    'delete' => 'Eliminar',
+    'remove' => 'Quitar',
+    'save' => 'Guardar',
+    'cancel' => 'Cancelar',
+    'update' => 'Actualizar',
+    'submit' => 'Enviar',
+    'export_csv' => 'Exportar CSV',
+    'import_csv' => 'Importar CSV',
+    'view' => 'Ver',
+    'print' => 'Imprimir',
+    'upload' => 'Subir',
+    'download' => 'Descargar',
+    'search' => 'Buscar',
+
+    // Product Related
+    'all_product' => 'Todos los Productos',
+    'add_product_title' => 'Agregar Producto',
+    'edit_product_title' => 'Editar Producto',
+    'product_name' => 'Nombre del Producto',
+    'product_title' => 'Título del Producto',
+    'product_category' => 'Categoría del Producto',
+    'product_photo' => 'Foto del Producto',
+    'buying_price' => 'Precio de Compra',
+    'selling_price' => 'Precio de Venta',
+    'product_quantity' => 'Cantidad del Producto',
+    'out_of_stock' => 'Agotado',
+    'low_stock' => 'Bajo',
+
+    // Category Related
+    'all_categories' => 'Todas las Categorías',
+    'add_new_category' => 'Agregar Nueva Categoría',
+    'add_category' => 'Agregar Categoría',
+    'edit_category' => 'Editar Categoría',
+    'category_name' => 'Nombre de la Categoría',
+
+    // Sales Related
+    'all_sales' => 'Todas las Ventas',
+    'add_sale_title' => 'Agregar Venta',
+    'edit_sale_title' => 'Editar Venta',
+    'product_name_label' => 'Nombre del producto',
+    'sale_quantity' => 'Cantidad',
+    'sale_price' => 'Precio',
+    'sale_date' => 'Fecha',
+
+    // User Related
+    'all_users' => 'Todos los Usuarios',
+    'add_user' => 'Agregar Usuario',
+    'edit_user' => 'Editar Usuario',
+    'full_name' => 'Nombre Completo',
+    'user_role' => 'Rol del Usuario',
+    'user_status' => 'Estado del Usuario',
+    'last_login' => 'Último Acceso',
+    'user_image' => 'Imagen del Usuario',
+
+    // Group Related
+    'all_groups' => 'Todos los Grupos',
+    'add_group' => 'Agregar Grupo',
+    'edit_group' => 'Editar Grupo',
+    'group_name' => 'Nombre del Grupo',
+    'group_level' => 'Nivel del Grupo',
+    'group_status' => 'Estado del Grupo',
+
+    // Invoice Related
+    'all_invoices' => 'Todas las Facturas',
+    'add_invoice' => 'Agregar Factura',
+    'invoice_number' => 'Factura #',
+    'customer_name' => 'Nombre del Cliente',
+    'invoice_date' => 'Fecha de Factura',
+    'subtotal' => 'Subtotal',
+    'tax' => 'Impuesto',
+    'discount' => 'Descuento',
+
+    // Media Related
+    'media_files' => 'Archivos Multimedia',
+    'upload_media' => 'Subir Multimedia',
+    'all_media' => 'Todos los Medios',
+
+    // Profile & Account
+    'user_profile' => 'Perfil de Usuario',
+    'edit_account' => 'Editar Cuenta',
+    'change_password' => 'Cambiar tu contraseña',
+    'current_password' => 'Contraseña Actual',
+    'new_password' => 'Nueva Contraseña',
+    'confirm_password' => 'Confirmar Contraseña',
+
+    // Status Messages
+    'success_added' => 'Agregado Exitosamente',
+    'success_updated' => 'Actualizado Exitosamente',
+    'success_deleted' => 'Eliminado Exitosamente',
+    'failed_insert' => 'Lo siento, no se pudo insertar',
+    'failed_update' => 'No se pudo actualizar',
+    'failed_delete' => 'No se pudo eliminar',
+    'missing_fields' => 'Por favor complete todos los campos requeridos',
+
+    // Common
+    'description' => 'Descripción',
+    'image' => 'Imagen',
+    'active' => 'Activo',
+    'inactive' => 'Inactivo',
+    'yes' => 'Sí',
+    'no' => 'No',
+    'select' => 'Seleccionar',
+    'choose_file' => 'Elegir Archivo',
+    'no_file_chosen' => 'Ningún archivo elegido',
 ];
 ?>

@@ -40,15 +40,16 @@ if (isset($_POST['add_cat'])) {
       <div class="panel-heading">
         <strong>
           <span class="material-symbols-outlined">add_circle</span>
-          <span>Add New Category</span>
+          <span><?php echo __('add_new_category'); ?></span>
         </strong>
       </div>
       <div class="panel-body">
         <form method="post" action="categorie.php">
           <div class="form-group">
-            <input type="text" class="form-control" name="categorie-name" placeholder="Category Name">
+            <input type="text" class="form-control" name="categorie-name"
+              placeholder="<?php echo __('category_name'); ?>">
           </div>
-          <button type="submit" name="add_cat" class="btn btn-primary">Add Category</button>
+          <button type="submit" name="add_cat" class="btn btn-primary"><?php echo __('add_category'); ?></button>
         </form>
       </div>
     </div>
@@ -58,22 +59,29 @@ if (isset($_POST['add_cat'])) {
       <div class="panel-heading clearfix">
         <strong>
           <span class="material-symbols-outlined">category</span>
-          <span>All Categories</span>
+          <span><?php echo __('all_categories'); ?></span>
         </strong>
         <div class="pull-right">
           <a href="export_csv.php?type=categories" class="btn btn-success btn-xs"><span
-              class="material-symbols-outlined">file_download</span> Export CSV</a>
+              class="material-symbols-outlined">file_download</span> <?php echo __('export_csv'); ?></a>
           <a href="import_csv.php?type=categories" class="btn btn-info btn-xs"><span
-              class="material-symbols-outlined">file_upload</span> Import CSV</a>
+              class="material-symbols-outlined">file_upload</span> <?php echo __('import_csv'); ?></a>
         </div>
       </div>
       <div class="panel-body">
-        <table class="table table-bordered table-striped table-hover">
+        <div class="list-filter-container">
+          <div class="search-input-wrapper">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" id="category-search" class="form-control search-input"
+              placeholder="Search categories...">
+          </div>
+        </div>
+        <table class="table table-bordered table-striped table-hover" id="category-table">
           <thead>
             <tr>
               <th class="text-center" style="width: 50px;">#</th>
-              <th>Categories</th>
-              <th class="text-center" style="width: 100px;">Actions</th>
+              <th><?php echo __('categories'); ?></th>
+              <th class="text-center" style="width: 100px;"><?php echo __('actions'); ?></th>
             </tr>
           </thead>
           <tbody>

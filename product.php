@@ -14,26 +14,33 @@ $products = join_product_table();
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
         <div class="pull-right">
-          <a href="add_product.php" class="btn btn-primary">Add New</a>
+          <a href="add_product.php" class="btn btn-primary"><?php echo __('add_new'); ?></a>
           <a href="export_csv.php?type=products" class="btn btn-success"><span
-              class="material-symbols-outlined">file_download</span> Export CSV</a>
+              class="material-symbols-outlined">file_download</span> <?php echo __('export_csv'); ?></a>
           <a href="import_csv.php" class="btn btn-info"><span class="material-symbols-outlined">file_upload</span>
-            Import CSV</a>
+            <?php echo __('import_csv'); ?></a>
         </div>
       </div>
       <div class="panel-body p-0">
-        <table class="table">
+        <div class="list-filter-container" style="margin: 20px;">
+          <div class="search-input-wrapper">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" id="product-search" class="form-control search-input"
+              placeholder="Search products by name or category...">
+          </div>
+        </div>
+        <table class="table" id="product-table">
           <thead>
             <tr>
               <th class="text-center" style="width: 50px;">#</th>
-              <th style="width: 80px;">Photo</th>
-              <th> Product </th>
-              <th> Category </th>
-              <th class="text-center"> Stock </th>
-              <th class="text-center"> Cost </th>
-              <th class="text-center"> Price </th>
-              <th class="text-center"> Added </th>
-              <th class="text-center" style="width: 120px;"> Actions </th>
+              <th style="width: 80px;"><?php echo __('photo'); ?></th>
+              <th> <?php echo __('product'); ?> </th>
+              <th> <?php echo __('category'); ?> </th>
+              <th class="text-center"> <?php echo __('stock'); ?> </th>
+              <th class="text-center"> <?php echo __('cost'); ?> </th>
+              <th class="text-center"> <?php echo __('price'); ?> </th>
+              <th class="text-center"> <?php echo __('added'); ?> </th>
+              <th class="text-center" style="width: 120px;"> <?php echo __('actions'); ?> </th>
             </tr>
           </thead>
           <tbody>
@@ -56,9 +63,9 @@ $products = join_product_table();
                   <?php
                   $qty = (int) $product['quantity'];
                   if ($qty <= 0)
-                    echo '<span class="badge badge-danger">Out of Stock</span>';
+                    echo '<span class="badge badge-danger">' . __('out_of_stock') . '</span>';
                   elseif ($qty < 10)
-                    echo '<span class="badge badge-warning">Low: ' . $qty . '</span>';
+                    echo '<span class="badge badge-warning">' . __('low_stock') . ': ' . $qty . '</span>';
                   else
                     echo '<span class="badge badge-success">' . $qty . '</span>';
                   ?>

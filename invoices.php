@@ -25,7 +25,14 @@ $all_invoices = $invoice_obj->find_all_invoices();
                 </div>
             </div>
             <div class="panel-body">
-                <table class="table table-bordered table-striped">
+                <div class="list-filter-container">
+                    <div class="search-input-wrapper">
+                        <span class="material-symbols-outlined">search</span>
+                        <input type="text" id="invoices-search" class="form-control search-input"
+                            placeholder="Search invoices by number or customer name...">
+                    </div>
+                </div>
+                <table class="table table-bordered table-striped" id="invoices-table">
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 50px;">#</th>

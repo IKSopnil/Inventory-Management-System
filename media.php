@@ -38,7 +38,8 @@ if (isset($_POST['submit'])) {
                 <span class="input-group-btn">
                   <input type="file" name="file_upload" multiple="multiple" class="btn btn-primary btn-file" />
                 </span>
-
+                <img id="media-preview" class="image-preview" src=""
+                  style="display:none; width: 40px; height: 40px; object-fit: cover; border-radius: var(--border-radius-sm); margin: 0 10px; border: 1px solid var(--border-color);">
                 <button type="submit" name="submit" class="btn btn-primary">Upload</button>
               </div>
             </div>
@@ -46,7 +47,14 @@ if (isset($_POST['submit'])) {
         </div>
       </div>
       <div class="panel-body">
-        <table class="table">
+        <div class="list-filter-container">
+          <div class="search-input-wrapper">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" id="media-search" class="form-control search-input"
+              placeholder="Search media by filename...">
+          </div>
+        </div>
+        <table class="table" id="media-table">
           <thead>
             <tr>
               <th class="text-center" style="width: 50px;">#</th>
