@@ -46,9 +46,16 @@ if (isset($_POST['stats_range'])) {
 ?>
 <?php
 // find all product
-if (isset($_POST['p_name']) && strlen($_POST['p_name'])) {
-  $product_title = remove_junk($db->escape($_POST['p_name']));
-  if ($results = find_all_product_info_by_title($product_title)) {
+if ((isset($_POST['p_name']) && strlen($_POST['p_name'])) || (isset($_POST['product_id']) && strlen($_POST['product_id']))) {
+  if (isset($_POST['p_name'])) {
+    $product_title = remove_junk($db->escape($_POST['p_name']));
+    $results = find_all_product_info_by_title($product_title);
+  } else {
+    $product_id = (int) $_POST['product_id'];
+    $results = find_product_info_by_id($product_id);
+  }
+
+  if ($results) {
     foreach ($results as $result) {
 
       $html .= "<tr>";

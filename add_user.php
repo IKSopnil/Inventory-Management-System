@@ -46,6 +46,11 @@ if (isset($_POST['add_user'])) {
         <span class="material-symbols-outlined">person_add</span>
         <span>Add New User</span>
       </strong>
+      <div class="pull-right">
+        <a href="users.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+      </div>
     </div>
     <div class="panel-body">
       <div class="col-md-6">

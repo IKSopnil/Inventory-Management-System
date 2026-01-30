@@ -31,6 +31,7 @@ if (isset($_POST['submit'])) {
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Default Page Title</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <style>
     @media print {
 
@@ -39,6 +40,10 @@ if (isset($_POST['submit'])) {
         font-size: 9.5pt;
         margin: 0;
         padding: 0;
+      }
+
+      .no-print {
+        display: none !important;
       }
 
       .page-break {
@@ -107,13 +112,18 @@ if (isset($_POST['submit'])) {
 <body>
   <?php if ($results): ?>
     <div class="page-break">
+      <div class="no-print" style="margin-top: 20px; text-align: right;">
+        <a href="sales_report.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+      </div>
       <div class="sale-head">
         <h1>Inventory Management System - Sales Report</h1>
         <strong><?php if (isset($start_date)) {
           echo $start_date;
         } ?> TILL DATE <?php if (isset($end_date)) {
-           echo $end_date;
-         } ?>
+            echo $end_date;
+          } ?>
         </strong>
       </div>
       <table class="table table-border">

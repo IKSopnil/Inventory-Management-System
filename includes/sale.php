@@ -12,9 +12,10 @@ class Sale
 
     public function find_all()
     {
-        $sql = "SELECT s.id,s.qty,s.price,s.date,p.name";
+        $sql = "SELECT s.id,s.qty,s.price,s.date,p.name,m.file_name AS image,p.media_id";
         $sql .= " FROM sales s";
         $sql .= " LEFT JOIN products p ON s.product_id = p.id";
+        $sql .= " LEFT JOIN media m ON p.media_id = m.id";
         $sql .= " ORDER BY s.date DESC";
         $result = $this->db->query($sql);
         return $this->db->while_loop($result);

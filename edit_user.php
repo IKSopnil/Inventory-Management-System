@@ -75,6 +75,11 @@ if (isset($_POST['update-pass'])) {
           <?php echo __('update'); ?> <?php echo remove_junk(ucwords($e_user['name'])); ?>
           <?php echo __('edit_account'); ?>
         </strong>
+        <div class="pull-right">
+          <a href="users.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
       </div>
       <div class="panel-body">
         <form method="post" action="edit_user.php?id=<?php echo (int) $e_user['id']; ?>" class="clearfix">
@@ -127,6 +132,11 @@ if (isset($_POST['update-pass'])) {
           <span class="material-symbols-outlined">lock</span>
           <?php echo __('change_password'); ?> - <?php echo remove_junk(ucwords($e_user['name'])); ?>
         </strong>
+        <div class="pull-right">
+          <a href="users.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
       </div>
       <div class="panel-body">
         <form action="edit_user.php?id=<?php echo (int) $e_user['id']; ?>" method="post" class="clearfix">

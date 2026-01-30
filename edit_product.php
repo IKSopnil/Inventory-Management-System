@@ -24,11 +24,29 @@ if (isset($_POST['product'])) {
     $p_qty = remove_junk($db->escape($_POST['product-quantity']));
     $p_buy = remove_junk($db->escape($_POST['buying-price']));
     $p_sale = remove_junk($db->escape($_POST['saleing-price']));
-    if (is_null($_POST['product-photo']) || $_POST['product-photo'] === "") {
-      $media_id = '0';
-    } else {
+    if (isset($_FILES['product-photo-file']) && $_FILES['product-photo-file']['error'] == 0) {
+      $photo = new Media();
+      $photo->upload($_FILES['product-photo-file']);
+      if ($photo->process_media()) {
+        $media_id = $db->insert_id();
+      } else {
+        $session->msg('d', join($photo->errors));
+        redirect('edit_product.php?id=' . $product['id'], false);
+      }
+    } elseif (isset($_POST['product-photo']) && $_POST['product-photo'] !== "") {
       $media_id = remove_junk($db->escape($_POST['product-photo']));
+    } else {
+      $media_id = '0';
     }
+
+    // Check if product name already exists (excluding current product)
+    $sql_check = "SELECT id FROM products WHERE name='{$p_name}' AND id != '{$product['id']}' LIMIT 1";
+    $result_check = $db->query($sql_check);
+    if ($db->num_rows($result_check) > 0) {
+      $session->msg("d", "A product with that name already exists!");
+      redirect('edit_product.php?id=' . $product['id'], false);
+    }
+
     $query = "UPDATE products SET";
     $query .= " name ='{$p_name}', quantity ='{$p_qty}',";
     $query .= " buy_price ='{$p_buy}', sale_price ='{$p_sale}', categorie_id ='{$p_cat}',media_id='{$media_id}'";
@@ -62,12 +80,18 @@ if (isset($_POST['product'])) {
       <div class="panel-heading">
         <strong>
           <span class="material-symbols-outlined">edit</span>
-          <span>Add New Product</span>
+          <span>Edit Product: <?php echo remove_junk($product['name']); ?></span>
         </strong>
+        <div class="pull-right">
+          <a href="product.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
       </div>
       <div class="panel-body">
         <div class="col-md-7">
-          <form method="post" action="edit_product.php?id=<?php echo (int) $product['id'] ?>">
+          <form method="post" action="edit_product.php?id=<?php echo (int) $product['id'] ?>"
+            enctype="multipart/form-data">
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon">
@@ -92,24 +116,30 @@ if (isset($_POST['product'])) {
                   </select>
                 </div>
                 <div class="col-md-6">
-                  <div class="media-select-wrapper" style="display:flex; align-items:center;">
-                    <select class="form-control" name="product-photo" id="product-photo-select" style="flex-grow:1;">
-                      <option value=""> No image</option>
-                      <?php foreach ($all_photo as $photo): ?>
-                        <option value="<?php echo (int) $photo['id']; ?>"
-                          data-filename="<?php echo $photo['file_name'] ?>" <?php if ($product['media_id'] === $photo['id']):
-                               echo "selected";
-                             endif; ?>>
-                          <?php echo $photo['file_name'] ?>
-                        </option>
-                      <?php endforeach; ?>
-                    </select>
-                    <?php
-                    $p_media = find_by_id('media', (int) $product['media_id']);
-                    $p_image = ($p_media) ? $p_media['file_name'] : 'no_image.png';
-                    ?>
-                    <img id="media-dropdown-preview" src="uploads/products/<?php echo $p_image; ?>"
-                      style="width: 44px; height: 44px; object-fit: cover; margin-left:10px; border-radius:8px; border:1px solid var(--border-color);">
+                  <div class="media-select-wrapper" style="display:flex; flex-direction: column; gap: 10px;">
+                    <div style="display:flex; align-items:center;">
+                      <select class="form-control" name="product-photo" id="product-photo-select" style="flex-grow:1;">
+                        <option value=""> No image</option>
+                        <?php foreach ($all_photo as $photo): ?>
+                          <option value="<?php echo (int) $photo['id']; ?>"
+                            data-filename="<?php echo $photo['file_name'] ?>" <?php if ($product['media_id'] === $photo['id']):
+                                 echo "selected";
+                               endif; ?>>
+                            <?php echo $photo['file_name'] ?>
+                          </option>
+                        <?php endforeach; ?>
+                      </select>
+                      <?php
+                      $p_media = find_by_id('media', (int) $product['media_id']);
+                      $p_image = ($p_media) ? $p_media['file_name'] : 'no_image.png';
+                      ?>
+                      <img id="media-dropdown-preview" src="uploads/products/<?php echo $p_image; ?>"
+                        style="width: 44px; height: 44px; object-fit: cover; margin-left:10px; border-radius:8px; border:1px solid var(--border-color);">
+                    </div>
+                    <div class="help-block" style="margin: 0; font-size: 12px; color: #666;">
+                      <?php echo __('upload_new'); ?>
+                    </div>
+                    <input type="file" name="product-photo-file" class="btn btn-default btn-file" accept="image/*" />
                   </div>
                 </div>
               </div>
@@ -159,7 +189,7 @@ if (isset($_POST['product'])) {
             </div>
             <div class="text-right mt-10">
               <a href="product.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
-              <button type="submit" name="product" class="btn btn-danger"><?php echo __('update'); ?></button>
+              <button type="submit" name="product" class="btn btn-primary"><?php echo __('update_product'); ?></button>
             </div>
           </form>
         </div>

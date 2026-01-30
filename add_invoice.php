@@ -56,6 +56,11 @@ if (isset($_POST['add_invoice'])) {
                     <span class="material-symbols-outlined">add</span>
                     <span>Generate New Invoice</span>
                 </strong>
+                <div class="pull-right">
+                    <a href="invoices.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </a>
+                </div>
             </div>
             <div class="panel-body">
                 <form method="post" action="add_invoice.php" class="clearfix">
@@ -86,8 +91,9 @@ if (isset($_POST['add_invoice'])) {
                     </div>
                     <div class="form-group text-right">
                         <a href="invoices.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
-                        <button type="submit" name="add_invoice"
-                            class="btn btn-primary"><?php echo __('generate_invoice'); ?></button>
+                        <button type="submit" name="add_invoice" class="btn btn-primary"><span
+                                class="material-symbols-outlined">save</span>
+                            <?php echo __('generate_invoice'); ?></button>
                     </div>
                 </form>
             </div>

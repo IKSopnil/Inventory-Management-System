@@ -200,6 +200,12 @@ function find_all_product_info_by_title($title)
   return $product_obj->find_info_by_title($title);
 }
 
+function find_product_info_by_id($id)
+{
+  global $product_obj;
+  return $product_obj->find_info_by_id($id);
+}
+
 /*--------------------------------------------------------------*/
 /* Function for Update product quantity
 /*--------------------------------------------------------------*/

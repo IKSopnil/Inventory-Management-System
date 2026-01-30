@@ -77,12 +77,16 @@ $products = join_product_table();
                 </td>
                 <td class="text-center">
                   <div class="btn-group">
+                    <a href="add_sale.php?product_id=<?php echo (int) $product['id']; ?>" class="btn btn-success btn-xs"
+                      title="<?php echo __('add_sale_to_sell'); ?>" data-toggle="tooltip">
+                      <span class="material-symbols-outlined">shopping_cart</span>
+                    </a>
                     <a href="edit_product.php?id=<?php echo (int) $product['id']; ?>" class="btn btn-primary btn-xs"
-                      title="Edit" data-toggle="tooltip">
+                      title="<?php echo __('edit'); ?>" data-toggle="tooltip">
                       <span class="material-symbols-outlined">edit</span>
                     </a>
                     <a href="delete_product.php?id=<?php echo (int) $product['id']; ?>" class="btn btn-danger btn-xs"
-                      title="Delete" data-toggle="tooltip">
+                      title="<?php echo __('delete'); ?>" data-toggle="tooltip">
                       <span class="material-symbols-outlined">delete</span>
                     </a>
                   </div>

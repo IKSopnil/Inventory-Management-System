@@ -12,7 +12,7 @@ return [
     'categories' => 'Categories',
     'products' => 'Products',
     'manage_product' => 'Manage Products',
-    'add_product' => 'Add Products',
+    'add_product' => 'Add Product',
     'media' => 'Media Files',
     'sales' => 'Sales',
     'manage_sales' => 'Manage Sales',
@@ -181,5 +181,10 @@ return [
     'select' => 'Select',
     'choose_file' => 'Choose File',
     'no_file_chosen' => 'No file chosen',
+    'save_product' => 'Save Product',
+    'update_product' => 'Update Product',
+    'create_group' => 'Create Group',
+    'upload_new' => 'Upload New',
+    'add_sale_to_sell' => 'Add Sale to Sell',
 ];
 ?>

@@ -38,7 +38,11 @@ if (isset($_POST['update'])) {
 ?>
 <?php include_once('layouts/header.php'); ?>
 <div class="login-page">
-  <div class="text-center">
+  <div class="text-center" style="position: relative;">
+    <a href="admin.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip"
+      style="position: absolute; left: 0; top: 50%; transform: translateY(-50%);">
+      <span class="material-symbols-outlined">arrow_back</span>
+    </a>
     <h3><?php echo __('change_password'); ?></h3>
   </div>
   <?php echo display_msg($msg); ?>

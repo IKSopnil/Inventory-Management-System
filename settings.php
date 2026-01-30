@@ -45,6 +45,11 @@ if (isset($_POST['update_settings'])) {
                     <span class="material-symbols-outlined">settings</span>
                     <span>Business Settings</span>
                 </strong>
+                <div class="pull-right">
+                    <a href="admin.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </a>
+                </div>
             </div>
             <div class="panel-body">
                 <form method="post" action="settings.php" enctype="multipart/form-data">
@@ -89,8 +94,9 @@ if (isset($_POST['update_settings'])) {
                     </div>
                     <div class="form-group text-right">
                         <a href="admin.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
-                        <button type="submit" name="update_settings"
-                            class="btn btn-primary"><?php echo __('save_settings'); ?></button>
+                        <button type="submit" name="update_settings" class="btn btn-primary"><span
+                                class="material-symbols-outlined">save</span>
+                            <?php echo __('save_settings'); ?></button>
                     </div>
                 </form>
             </div>

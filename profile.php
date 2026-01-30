@@ -16,6 +16,11 @@ endif;
 <div class="row">
   <div class="col-md-4">
     <div class="panel profile">
+      <div class="panel-heading text-right" style="padding: 10px; border:0;">
+        <a href="admin.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+          <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span>
+        </a>
+      </div>
       <div class="jumbotron text-center bg-red">
         <img class="img-circle img-size-2" src="uploads/users/<?php echo $user_p['image']; ?>" alt="">
         <h3><?php echo first_character($user_p['name']); ?></h3>

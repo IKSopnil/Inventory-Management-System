@@ -16,11 +16,21 @@ if (isset($_POST['add_product'])) {
     $p_qty = remove_junk($db->escape($_POST['product-quantity']));
     $p_buy = remove_junk($db->escape($_POST['buying-price']));
     $p_sale = remove_junk($db->escape($_POST['saleing-price']));
-    if (is_null($_POST['product-photo']) || $_POST['product-photo'] === "") {
-      $media_id = '0';
-    } else {
+    if (isset($_FILES['product-photo-file']) && $_FILES['product-photo-file']['error'] == 0) {
+      $photo = new Media();
+      $photo->upload($_FILES['product-photo-file']);
+      if ($photo->process_media()) {
+        $media_id = $db->insert_id();
+      } else {
+        $session->msg('d', join($photo->errors));
+        redirect('add_product.php', false);
+      }
+    } elseif (isset($_POST['product-photo']) && $_POST['product-photo'] !== "") {
       $media_id = remove_junk($db->escape($_POST['product-photo']));
+    } else {
+      $media_id = '0';
     }
+
     $date = make_date();
     $query = "INSERT INTO products (";
     $query .= " name,quantity,buy_price,sale_price,categorie_id,media_id,date";
@@ -58,10 +68,15 @@ if (isset($_POST['add_product'])) {
           <span class="material-symbols-outlined">add_circle</span>
           <span>Add New Product</span>
         </strong>
+        <div class="pull-right">
+          <a href="product.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
       </div>
       <div class="panel-body">
         <div class="col-md-12">
-          <form method="post" action="add_product.php" class="clearfix">
+          <form method="post" action="add_product.php" class="clearfix" enctype="multipart/form-data">
             <div class="form-group">
               <label>Product Title</label>
               <input type="text" class="form-control" name="product-title" placeholder="e.g. Wireless Mouse">
@@ -82,18 +97,24 @@ if (isset($_POST['add_product'])) {
                 </div>
                 <div class="col-md-6">
                   <label>Media / Image</label>
-                  <div class="media-select-wrapper" style="display:flex; align-items:center;">
-                    <select class="form-control" name="product-photo" id="product-photo-select" style="flex-grow:1;">
-                      <option value="">Select Photo</option>
-                      <?php foreach ($all_photo as $photo): ?>
-                        <option value="<?php echo (int) $photo['id'] ?>"
-                          data-filename="<?php echo $photo['file_name'] ?>">
-                          <?php echo $photo['file_name'] ?>
-                        </option>
-                      <?php endforeach; ?>
-                    </select>
-                    <img id="media-dropdown-preview" src="uploads/products/no_image.png"
-                      style="width: 44px; height: 44px; object-fit: cover; margin-left:10px; border-radius:8px; border:1px solid var(--border-color);">
+                  <div class="media-select-wrapper" style="display:flex; flex-direction: column; gap: 10px;">
+                    <div style="display:flex; align-items:center;">
+                      <select class="form-control" name="product-photo" id="product-photo-select" style="flex-grow:1;">
+                        <option value="">Select Existing Photo</option>
+                        <?php foreach ($all_photo as $photo): ?>
+                          <option value="<?php echo (int) $photo['id'] ?>"
+                            data-filename="<?php echo $photo['file_name'] ?>">
+                            <?php echo $photo['file_name'] ?>
+                          </option>
+                        <?php endforeach; ?>
+                      </select>
+                      <img id="media-dropdown-preview" src="uploads/products/no_image.png"
+                        style="width: 44px; height: 44px; object-fit: cover; margin-left:10px; border-radius:8px; border:1px solid var(--border-color);">
+                    </div>
+                    <div class="help-block" style="margin: 0; font-size: 12px; color: #666;">
+                      <?php echo __('upload_new'); ?>
+                    </div>
+                    <input type="file" name="product-photo-file" class="btn btn-default btn-file" accept="image/*" />
                   </div>
                 </div>
               </div>
@@ -119,7 +140,7 @@ if (isset($_POST['add_product'])) {
             <div class="text-right mt-10">
               <a href="product.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
               <button type="submit" name="add_product" class="btn btn-primary btn-lg">
-                <span class="material-symbols-outlined">add</span> <?php echo __('save_product'); ?>
+                <span class="material-symbols-outlined">save</span> <?php echo __('save_product'); ?>
               </button>
             </div>
           </form>

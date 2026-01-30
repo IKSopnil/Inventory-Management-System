@@ -63,6 +63,11 @@ if (isset($_POST['add_sale'])) {
           <span class="material-symbols-outlined">add_circle</span>
           <span>Add Sale</span>
         </strong>
+        <div class="pull-right">
+          <a href="sales.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
       </div>
       <div class="panel-body">
         <form method="post" action="add_sale.php">
@@ -85,3 +90,23 @@ if (isset($_POST['add_sale'])) {
 </div>
 
 <?php include_once('layouts/footer.php'); ?>
+
+<?php if (isset($_GET['product_id'])): ?>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var p_id = "<?php echo (int) $_GET['product_id']; ?>";
+      if (p_id) {
+        $.ajax({
+          type: 'POST',
+          url: 'ajax.php',
+          data: { 'product_id': p_id },
+          dataType: 'json',
+        }).done(function (data) {
+          $('#product_info').html(data).show();
+          total();
+          $('.datePicker').datepicker('update', new Date());
+        });
+      }
+    });
+  </script>
+<?php endif; ?>

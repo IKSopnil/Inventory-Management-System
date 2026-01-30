@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
                 </span>
                 <img id="media-preview" class="image-preview" src=""
                   style="display:none; width: 40px; height: 40px; object-fit: cover; border-radius: var(--border-radius-sm); margin: 0 10px; border: 1px solid var(--border-color);">
-                <button type="submit" name="submit" class="btn btn-primary">Upload</button>
+                <button type="submit" name="submit" class="btn btn-primary"><?php echo __('upload'); ?></button>
               </div>
             </div>
           </form>

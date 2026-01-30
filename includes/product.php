@@ -66,4 +66,12 @@ class Product
         $result = $this->db->query($sql);
         return ($result && $this->db->affected_rows() === 1 ? true : false);
     }
+
+    public function find_info_by_id($id)
+    {
+        $id = (int) $id;
+        $sql = "SELECT * FROM products WHERE id ='{$id}' LIMIT 1";
+        $result = $this->db->query($sql);
+        return $this->db->while_loop($result);
+    }
 }

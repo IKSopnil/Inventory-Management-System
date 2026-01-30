@@ -39,6 +39,7 @@ $sales = find_all_sale();
           <thead>
             <tr>
               <th class="text-center" style="width: 50px;">#</th>
+              <th style="width: 80px;"><?php echo __('photo'); ?></th>
               <th> <?php echo __('product_name_label'); ?> </th>
               <th class="text-center" style="width: 15%;"> <?php echo __('quantity'); ?></th>
               <th class="text-center" style="width: 15%;"> <?php echo __('total'); ?> </th>
@@ -50,6 +51,14 @@ $sales = find_all_sale();
             <?php foreach ($sales as $sale): ?>
               <tr>
                 <td class="text-center"><?php echo count_id(); ?></td>
+                <td>
+                  <?php if ($sale['media_id'] === '0'): ?>
+                    <img class="img-avatar" src="uploads/products/no_image.png" alt="" style="border-radius:8px;">
+                  <?php else: ?>
+                    <img class="img-avatar" src="uploads/products/<?php echo $sale['image']; ?>" alt=""
+                      style="border-radius:8px;">
+                  <?php endif; ?>
+                </td>
                 <td><?php echo remove_junk($sale['name']); ?></td>
                 <td class="text-center"><?php echo (int) $sale['qty']; ?></td>
                 <td class="text-center"><?php echo remove_junk($sale['price']); ?></td>

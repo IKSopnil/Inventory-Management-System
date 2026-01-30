@@ -51,6 +51,11 @@ if (isset($_POST['add'])) {
           <span class="material-symbols-outlined">group_add</span>
           <span>Add New Group</span>
         </strong>
+        <div class="pull-right">
+          <a href="group.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
       </div>
       <div class="panel-body">
         <form method="post" action="add_group.php" class="clearfix">
@@ -77,7 +82,8 @@ if (isset($_POST['add'])) {
           </div>
           <div class="form-group clearfix text-right">
             <a href="group.php" class="btn btn-default"><?php echo __('cancel'); ?></a>
-            <button type="submit" name="add" class="btn btn-primary"><?php echo __('create_group'); ?></button>
+            <button type="submit" name="add" class="btn btn-primary"><span class="material-symbols-outlined">save</span>
+              <?php echo __('create_group'); ?></button>
           </div>
         </form>
       </div>

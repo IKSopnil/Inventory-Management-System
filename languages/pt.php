@@ -144,5 +144,6 @@ return [
     'select' => 'Selecionar',
     'choose_file' => 'Escolher Arquivo',
     'no_file_chosen' => 'Nenhum arquivo escolhido',
+    'add_sale_to_sell' => 'Adicionar venda para vender',
 ];
 ?>

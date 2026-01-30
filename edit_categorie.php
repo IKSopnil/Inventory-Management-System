@@ -48,6 +48,11 @@ if (isset($_POST['edit_cat'])) {
           <span class="material-symbols-outlined">edit</span>
           <span>Editing <?php echo remove_junk(ucfirst($categorie['name'])); ?></span>
         </strong>
+        <div class="pull-right">
+          <a href="categorie.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
       </div>
       <div class="panel-body">
         <form method="post" action="edit_categorie.php?id=<?php echo (int) $categorie['id']; ?>">

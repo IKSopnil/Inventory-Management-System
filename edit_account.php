@@ -53,6 +53,11 @@ if (isset($_POST['update'])) {
         <div class="panel-heading clearfix">
           <span class="material-symbols-outlined">photo_camera</span>
           <span>Change My photo</span>
+          <div class="pull-right">
+            <a href="admin.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+              <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+          </div>
         </div>
       </div>
       <div class="panel-body">
@@ -82,6 +87,11 @@ if (isset($_POST['update'])) {
       <div class="panel-heading clearfix">
         <span class="material-symbols-outlined">edit</span>
         <span>Edit My Account</span>
+        <div class="pull-right">
+          <a href="admin.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+        </div>
       </div>
       <div class="panel-body">
         <form method="post" action="edit_account.php?id=<?php echo (int) $user['id']; ?>" class="clearfix">

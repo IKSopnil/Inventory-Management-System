@@ -59,7 +59,11 @@ if (isset($_POST['update_sale'])) {
           <span>All Sales</span>
         </strong>
         <div class="pull-right">
-          <a href="sales.php" class="btn btn-primary">Show all sales</a>
+          <a href="sales.php" class="btn btn-default btn-xs" title="Back" data-toggle="tooltip"
+            style="margin-left: 10px;">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+          <a href="sales.php" class="btn btn-primary btn-xs">Show all sales</a>
         </div>
       </div>
       <div class="panel-body">

@@ -172,5 +172,6 @@ return [
     'select' => 'Seleccionar',
     'choose_file' => 'Elegir Archivo',
     'no_file_chosen' => 'Ningún archivo elegido',
+    'add_sale_to_sell' => 'Agregar venta para vender',
 ];
 ?>
