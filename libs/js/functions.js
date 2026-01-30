@@ -164,4 +164,20 @@ $(document).ready(function () {
             todayHighlight: true,
             autoclose: true
         });
+
+    // Mobile Sidebar Toggle
+    $('#sidebar-toggle').click(function (e) {
+        e.preventDefault();
+        e.stopPropagation(); // Prevent immediate closing
+        $('.sidebar').toggleClass('open');
+    });
+
+    // Close sidebar when clicking outside on mobile
+    $(document).click(function (event) {
+        if (!$(event.target).closest('.sidebar').length &&
+            !$(event.target).closest('#sidebar-toggle').length &&
+            $('.sidebar').hasClass('open')) {
+            $('.sidebar').removeClass('open');
+        }
+    });
 });

@@ -318,6 +318,8 @@ footer a:hover {
   text-transform: uppercase;
   padding: 10px 24px !important;
   border-bottom: 1px solid var(--border-color) !important;
+  white-space: nowrap;
+  /* Prevent text wrapping */
 }
 
 .table tbody td {
@@ -325,6 +327,15 @@ footer a:hover {
   border-top: 1px solid var(--border-color) !important;
   color: var(--text-main);
   vertical-align: middle !important;
+  white-space: nowrap;
+  /* Prevent text wrapping */
+}
+
+/* Allow horizontal scroll on all devices if table is too wide */
+.panel-body {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 
 /* Action Button Spacing & Style */
@@ -426,4 +437,128 @@ footer a:hover {
 .form-control:focus {
   border-color: var(--color-primary) !important;
   box-shadow: none !important;
+}
+
+/* =========================================
+   Mobile Responsiveness & Sidebar Toggle
+   ========================================= */
+
+/* Default: Hide Toggle on Desktop */
+#sidebar-toggle {
+  display: none;
+  padding: 8px;
+  margin-right: 10px;
+  color: var(--text-main);
+  background: transparent;
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+#sidebar-toggle:hover {
+  background: var(--bg-active);
+  color: var(--color-primary);
+}
+
+#sidebar-toggle .material-symbols-outlined {
+  font-size: 24px !important;
+}
+
+/* Page Overlay for Mobile Sidebar */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.sidebar.open+.sidebar-overlay {
+  display: block;
+}
+
+@media (max-width: 768px) {
+
+  /* Header Adjustments */
+  #header {
+    padding: 0 16px !important;
+  }
+
+  #header .logo {
+    display: none;
+    /* Hide logo text to save space, or make it smaller */
+  }
+
+  .header-content {
+    padding: 0 !important;
+  }
+
+  .header-left-actions {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    /* Push other items to right */
+  }
+
+  #sidebar-toggle {
+    display: inline-flex;
+  }
+
+  .header-date {
+    display: none;
+    /* Hide date on mobile */
+  }
+
+  /* Sidebar: Slide-out behavior */
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-premium);
+    width: 260px;
+    /* Slightly wider for better touch targets */
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Page Content: Full width */
+  .page {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Footer: Adjust position */
+  footer {
+    left: 16px;
+    right: 16px;
+  }
+
+  /* Tables: Horizontal Scroll */
+  .panel-body {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table {
+    min-width: 600px;
+    /* Force table width to trigger scroll if needed */
+    margin-bottom: 0;
+  }
+
+  /* Ensure actions column doesn't break */
+  .table td .btn-group {
+    display: flex !important;
+    min-width: 80px;
+  }
+
+  .table td,
+  .table th {
+    white-space: nowrap;
+  }
 }

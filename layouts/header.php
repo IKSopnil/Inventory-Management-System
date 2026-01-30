@@ -15,9 +15,9 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet" href="libs/css/design-system.css?v=7" />
-  <link rel="stylesheet" href="libs/css/main.css?v=7" />
-  <link rel="stylesheet" href="libs/css/dark-mode.css?v=7" />
+  <link rel="stylesheet" href="libs/css/design-system.css?v=8" />
+  <link rel="stylesheet" href="libs/css/main.css?v=8" />
+  <link rel="stylesheet" href="libs/css/dark-mode.css?v=8" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -26,6 +26,11 @@
     <header id="header">
       <div class="logo">Inventory System</div>
       <div class="header-content">
+        <div class="header-left-actions">
+          <button type="button" id="sidebar-toggle" class="btn btn-link">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
         <div class="header-date">
           <strong><?php echo date("F j, Y, g:i a"); ?></strong>
         </div>
