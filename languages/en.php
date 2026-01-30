@@ -186,5 +186,9 @@ return [
     'create_group' => 'Create Group',
     'upload_new' => 'Upload New',
     'add_sale_to_sell' => 'Add Sale to Sell',
+    'generate_invoice' => 'Generate Invoice',
+    'update_sale' => 'Update Sale',
+    'save_settings' => 'Save Settings',
+    'update_categorie' => 'Update Category',
 ];
 ?>

@@ -144,5 +144,14 @@ return [
     'select' => 'اختر',
     'choose_file' => 'اختر ملف',
     'no_file_chosen' => 'لم يتم اختيار ملف',
+    'generate_invoice' => 'إنشاء فاتورة',
+    'update_sale' => 'تحديث البيع',
+    'save_settings' => 'حفظ الإعدادات',
+    'save_product' => 'حفظ المنتج',
+    'update_product' => 'تحديث المنتج',
+    'create_group' => 'إنشاء مجموعة',
+    'upload_new' => 'تحميل جديد',
+    'add_sale_to_sell' => 'إضافة بيع',
+    'update_categorie' => 'تحديث الفئة',
 ];
 ?>

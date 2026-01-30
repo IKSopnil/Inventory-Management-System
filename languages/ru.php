@@ -144,5 +144,14 @@ return [
     'select' => 'Выбрать',
     'choose_file' => 'Выбрать файл',
     'no_file_chosen' => 'Файл не выбран',
+    'generate_invoice' => 'Создать счет',
+    'update_sale' => 'Обновить продажу',
+    'save_settings' => 'Сохранить настройки',
+    'save_product' => 'Сохранить продукт',
+    'update_product' => 'Обновить продукт',
+    'create_group' => 'Создать группу',
+    'upload_new' => 'Загрузить новый',
+    'add_sale_to_sell' => 'Добавить продажу',
+    'update_categorie' => 'Обновить категорию',
 ];
 ?>

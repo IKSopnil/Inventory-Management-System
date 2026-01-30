@@ -144,5 +144,14 @@ return [
     'select' => 'নির্বাচন করুন',
     'choose_file' => 'ফাইল চয়ন করুন',
     'no_file_chosen' => 'কোনো ফাইল নির্বাচন করা হয়নি',
+    'generate_invoice' => 'চালান তৈরি করুন',
+    'update_sale' => 'বিক্রয় আপডেট করুন',
+    'save_settings' => 'সেটিংস সংরক্ষণ করুন',
+    'save_product' => 'পণ্য সংরক্ষণ করুন',
+    'update_product' => 'পণ্য আপডেট করুন',
+    'create_group' => 'গ্রুপ তৈরি করুন',
+    'upload_new' => 'নতুন আপলোড করুন',
+    'add_sale_to_sell' => 'বিক্রি করতে বিক্রয় যোগ করুন',
+    'update_categorie' => 'বিভাগ আপডেট করুন',
 ];
 ?>

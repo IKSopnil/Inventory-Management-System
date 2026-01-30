@@ -173,5 +173,13 @@ return [
     'choose_file' => 'Elegir Archivo',
     'no_file_chosen' => 'Ningún archivo elegido',
     'add_sale_to_sell' => 'Agregar venta para vender',
+    'generate_invoice' => 'Generar Factura',
+    'update_sale' => 'Actualizar Venta',
+    'save_settings' => 'Guardar Configuración',
+    'save_product' => 'Guardar Producto',
+    'update_product' => 'Actualizar Producto',
+    'create_group' => 'Crear Grupo',
+    'upload_new' => 'Subir Nuevo',
+    'update_categorie' => 'Actualizar Categoría',
 ];
 ?>

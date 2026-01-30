@@ -144,5 +144,14 @@ return [
     'select' => 'منتخب کریں',
     'choose_file' => 'فائل منتخب کریں',
     'no_file_chosen' => 'کوئی فائل منتخب نہیں کی گئی',
+    'generate_invoice' => 'انوائس بنائیں',
+    'update_sale' => 'فروخت اپ ڈیٹ کریں',
+    'save_settings' => 'ترتیبات محفوظ کریں',
+    'save_product' => 'پروڈکٹ محفوظ کریں',
+    'update_product' => 'پروڈکٹ اپ ڈیٹ کریں',
+    'create_group' => 'گروپ بنائیں',
+    'upload_new' => 'نیا اپ لوڈ کریں',
+    'add_sale_to_sell' => 'فروخت شامل کریں',
+    'update_categorie' => 'زمرہ اپ ڈیٹ کریں',
 ];
 ?>

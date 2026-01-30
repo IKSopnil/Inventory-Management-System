@@ -144,5 +144,14 @@ return [
     'select' => 'Sélectionner',
     'choose_file' => 'Choisir un Fichier',
     'no_file_chosen' => 'Aucun fichier choisi',
+    'generate_invoice' => 'Générer une facture',
+    'update_sale' => 'Mettre à jour la vente',
+    'save_settings' => 'Enregistrer les paramètres',
+    'save_product' => 'Enregistrer le produit',
+    'update_product' => 'Mettre à jour le produit',
+    'create_group' => 'Créer un groupe',
+    'upload_new' => 'Télécharger un nouveau',
+    'add_sale_to_sell' => 'Ajouter une vente',
+    'update_categorie' => 'Mettre à jour la catégorie',
 ];
 ?>

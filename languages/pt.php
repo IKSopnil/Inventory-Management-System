@@ -145,5 +145,13 @@ return [
     'choose_file' => 'Escolher Arquivo',
     'no_file_chosen' => 'Nenhum arquivo escolhido',
     'add_sale_to_sell' => 'Adicionar venda para vender',
+    'generate_invoice' => 'Gerar Fatura',
+    'update_sale' => 'Atualizar Venda',
+    'save_settings' => 'Salvar Configurações',
+    'save_product' => 'Salvar Produto',
+    'update_product' => 'Atualizar Produto',
+    'create_group' => 'Criar Grupo',
+    'upload_new' => 'Upload Novo',
+    'update_categorie' => 'Atualizar Categoria',
 ];
 ?>

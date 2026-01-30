@@ -144,5 +144,14 @@ return [
     'select' => 'चुनें',
     'choose_file' => 'फ़ाइल चुनें',
     'no_file_chosen' => 'कोई फ़ाइल नहीं चुनी गई',
+    'generate_invoice' => 'चालान जनरेट करें',
+    'update_sale' => 'बिक्री अपडेट करें',
+    'save_settings' => 'सेटिंग्स सहेजें',
+    'save_product' => 'उत्पाद सहेजें',
+    'update_product' => 'उत्पाद अपडेट करें',
+    'create_group' => 'समूह बनाएं',
+    'upload_new' => 'नया अपलोड करें',
+    'add_sale_to_sell' => 'बेचने के लिए बिक्री जोड़ें',
+    'update_categorie' => 'श्रेणी अपडेट करें',
 ];
 ?>

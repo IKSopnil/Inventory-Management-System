@@ -144,5 +144,14 @@ return [
     'select' => '选择',
     'choose_file' => '选择文件',
     'no_file_chosen' => '未选择文件',
+    'generate_invoice' => '生成发票',
+    'update_sale' => '更新销售',
+    'save_settings' => '保存设置',
+    'save_product' => '保存产品',
+    'update_product' => '更新产品',
+    'create_group' => '创建组',
+    'upload_new' => '上传新文件',
+    'add_sale_to_sell' => '添加待售产品',
+    'update_categorie' => '更新类别',
 ];
 ?>
