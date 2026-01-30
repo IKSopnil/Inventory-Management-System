@@ -13,8 +13,11 @@ if (isset($_POST['add'])) {
   if (find_by_groupName($_POST['group-name']) === false) {
     $session->msg('d', '<b>Sorry!</b> Entered Group Name already in database!');
     redirect('add_group.php', false);
-  } elseif (find_by_groupLevel($_POST['group-level']) === false) {
-    $session->msg('d', '<b>Sorry!</b> Entered Group Level already in database!');
+  }
+
+  $level_check = (int) $_POST['group-level'];
+  if ($level_check < 1 || $level_check > 3) {
+    $session->msg('d', '<b>Error!</b> Group Level must be between 1 and 3.');
     redirect('add_group.php', false);
   }
   if (empty($errors)) {
@@ -30,7 +33,7 @@ if (isset($_POST['add'])) {
     if ($db->query($query)) {
       //sucess
       $session->msg('s', "Group has been creted! ");
-      redirect('add_group.php', false);
+      redirect('group.php', false);
     } else {
       //failed
       $session->msg('d', ' Sorry failed to create Group!');
@@ -70,8 +73,9 @@ if (isset($_POST['add'])) {
               <option value="2">Level 2 - Inventory Access</option>
               <option value="3">Level 3 - Sales Access</option>
             </select>
-            <p class="help-block text-muted" style="font-size:12px; margin-top:5px;">Select the appropriate permission
-              level.</p>
+            <p class="help-block text-muted" style="font-size:12px; margin-top:5px;">
+              Select the permission level. <b>Multiple groups can share the same level.</b>
+            </p>
           </div>
           <div class="form-group">
             <label for="status">Status</label>

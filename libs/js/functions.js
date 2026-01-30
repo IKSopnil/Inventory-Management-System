@@ -120,12 +120,30 @@ $(document).ready(function () {
     imagePreview();
 
     // List Filtering (Users/Products/Categories/Sales/Invoices/Media)
-    $("#user-search, #product-search, #category-search, #sales-search, #invoices-search, #media-search").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        var targetTable = "#" + $(this).attr('id').replace('-search', '-table');
+    function performSearch(inputId, tableId) {
+        var value = $(inputId).val().toLowerCase();
+        var targetTable = tableId;
         $(targetTable + " tbody tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
+    }
+
+    // Bind Click Events
+    $("#user-search-btn").click(function () { performSearch("#user-search", "#user-table"); });
+    $("#product-search-btn").click(function () { performSearch("#product-search", "#product-table"); });
+    $("#category-search-btn").click(function () { performSearch("#category-search", "#category-table"); });
+    $("#sales-search-btn").click(function () { performSearch("#sales-search", "#sales-table"); });
+    $("#invoices-search-btn").click(function () { performSearch("#invoices-search", "#invoices-table"); });
+    $("#media-search-btn").click(function () { performSearch("#media-search", "#media-table"); });
+
+    // Prevent Enter Key from Submitting & Optional: Trigger Search on Enter instead?
+    // User requested: "when i write any thing in field after clicking entry it shouldnt do action"
+    // So we strictly disable Enter key action.
+    $("#user-search, #product-search, #category-search, #sales-search, #invoices-search, #media-search").on("keypress", function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            return false;
+        }
     });
 
     // Active Sidebar Link Highlighting

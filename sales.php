@@ -29,10 +29,13 @@ $sales = find_all_sale();
       </div>
       <div class="panel-body">
         <div class="list-filter-container">
-          <div class="search-input-wrapper">
-            <span class="material-symbols-outlined">search</span>
-            <input type="text" id="sales-search" class="form-control search-input"
+          <div class="input-group">
+            <span class="input-group-addon"><span class="material-symbols-outlined">search</span></span>
+            <input type="text" id="sales-search" class="form-control"
               placeholder="Search sales by product name or date...">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button" id="sales-search-btn">Go</button>
+            </span>
           </div>
         </div>
         <table class="table table-bordered table-striped" id="sales-table">

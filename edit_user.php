@@ -22,9 +22,13 @@ if (isset($_POST['update'])) {
     $id = (int) $e_user['id'];
     $name = remove_junk($db->escape($_POST['name']));
     $username = remove_junk($db->escape($_POST['username']));
-    $level = (int) $db->escape($_POST['level']);
+    // Get Group ID and Lookup Level
+    $group_id = (int) $db->escape($_POST['level']); // Using 'level' name for dropdown but it sends ID
+    $group_info = find_by_id('user_groups', $group_id);
+    $level = (int) $group_info['group_level'];
+
     $status = remove_junk($db->escape($_POST['status']));
-    $sql = "UPDATE users SET name ='{$name}', username ='{$username}',user_level='{$level}',status='{$status}' WHERE id='{$db->escape($id)}'";
+    $sql = "UPDATE users SET name ='{$name}', username ='{$username}',user_level='{$level}',group_id='{$group_id}',status='{$status}' WHERE id='{$db->escape($id)}'";
     $result = $db->query($sql);
     if ($result && $db->affected_rows() === 1) {
       $session->msg('s', "Acount Updated ");
@@ -97,9 +101,10 @@ if (isset($_POST['update-pass'])) {
             <label for="level"><?php echo __('user_role'); ?></label>
             <select class="form-control" name="level">
               <?php foreach ($groups as $group): ?>
-                <option <?php if ($group['group_level'] === $e_user['user_level'])
+                <option <?php if ((int) $group['id'] === (int) $e_user['group_id'])
                   echo 'selected="selected"'; ?>
-                  value="<?php echo $group['group_level']; ?>"><?php echo ucwords($group['group_name']); ?></option>
+                  value="<?php echo $group['id']; ?>"><?php echo ucwords($group['group_name']); ?> (Level
+                  <?php echo $group['group_level']; ?>)</option>
               <?php endforeach; ?>
             </select>
           </div>

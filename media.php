@@ -48,10 +48,12 @@ if (isset($_POST['submit'])) {
       </div>
       <div class="panel-body">
         <div class="list-filter-container">
-          <div class="search-input-wrapper">
-            <span class="material-symbols-outlined">search</span>
-            <input type="text" id="media-search" class="form-control search-input"
-              placeholder="Search media by filename...">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="material-symbols-outlined">search</span></span>
+            <input type="text" id="media-search" class="form-control" placeholder="Search media by filename...">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button" id="media-search-btn">Go</button>
+            </span>
           </div>
         </div>
         <table class="table" id="media-table">

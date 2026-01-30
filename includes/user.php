@@ -73,7 +73,7 @@ class User
         $sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,";
         $sql .= "g.group_name ";
         $sql .= "FROM users u ";
-        $sql .= "LEFT JOIN user_groups g ON g.group_level=u.user_level ";
+        $sql .= "LEFT JOIN user_groups g ON g.id=u.group_id ";
         $sql .= "ORDER BY u.name ASC";
         $result = $this->db->query($sql);
         return $this->db->while_loop($result);

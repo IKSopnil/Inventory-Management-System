@@ -23,10 +23,13 @@ $products = join_product_table();
       </div>
       <div class="panel-body p-0">
         <div class="list-filter-container" style="margin: 20px;">
-          <div class="search-input-wrapper">
-            <span class="material-symbols-outlined">search</span>
-            <input type="text" id="product-search" class="form-control search-input"
+          <div class="input-group">
+            <span class="input-group-addon"><span class="material-symbols-outlined">search</span></span>
+            <input type="text" id="product-search" class="form-control"
               placeholder="Search products by name or category...">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button" id="product-search-btn">Go</button>
+            </span>
           </div>
         </div>
         <table class="table" id="product-table">

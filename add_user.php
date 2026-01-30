@@ -15,12 +15,17 @@ if (isset($_POST['add_user'])) {
     $name = remove_junk($db->escape($_POST['full-name']));
     $username = remove_junk($db->escape($_POST['username']));
     $password = remove_junk($db->escape($_POST['password']));
-    $user_level = (int) $db->escape($_POST['level']);
+
+    // Get Group ID and Lookup Level
+    $group_id = (int) $db->escape($_POST['level']); // Using 'level' name for dropdown but it sends ID
+    $group_info = find_by_id('user_groups', $group_id);
+    $user_level = (int) $group_info['group_level'];
+
     $password = sha1($password);
     $query = "INSERT INTO users (";
-    $query .= "name,username,password,user_level,status";
+    $query .= "name,username,password,user_level,group_id,status";
     $query .= ") VALUES (";
-    $query .= " '{$name}', '{$username}', '{$password}', '{$user_level}','1'";
+    $query .= " '{$name}', '{$username}', '{$password}', '{$user_level}', '{$group_id}','1'";
     $query .= ")";
     if ($db->query($query)) {
       //sucess
@@ -71,7 +76,8 @@ if (isset($_POST['add_user'])) {
             <label for="level">User Role</label>
             <select class="form-control" name="level">
               <?php foreach ($groups as $group): ?>
-                <option value="<?php echo $group['group_level']; ?>"><?php echo ucwords($group['group_name']); ?></option>
+                <option value="<?php echo $group['id']; ?>"><?php echo ucwords($group['group_name']); ?> (Level
+                  <?php echo $group['group_level']; ?>)</option>
               <?php endforeach; ?>
             </select>
           </div>
